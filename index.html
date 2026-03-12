@@ -14,11 +14,33 @@
     <link href="https://fonts.cdnfonts.com/css/snowmas" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/playtime-with-hot-toddies" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#D4AF37',
+                            dark: '#0a0a0a',
+                        }
+                    },
+                    fontFamily: {
+                        display: ['"Playtime With Hot Toddies"', 'sans-serif'],
+                        heading: ['Snowmas', 'serif'],
+                        body: ['"Times New Roman"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 
 <body class="antialiased min-h-screen" style="font-family: 'Times New Roman', Times, serif; color: #ffffff; background-color: #000000; background-image: url('home.jpg'); background-repeat: no-repeat; background-position: center center; background-attachment: fixed; background-size: cover;">
-    <!-- Global Background Blur Overlay -->
-    <div class="fixed inset-0 bg-black/50 backdrop-blur-2xl -z-10 pointer-events-none"></div>
+    <!-- Global Background Background (Less Blur for index) -->
+    <div class="fixed inset-0 bg-black/30 backdrop-blur-[2px] z-[-1] pointer-events-none"></div>
+    <!-- Dark Vignette for depth -->
+    <div class="fixed inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 z-[-1] pointer-events-none"></div>
     <!-- Navbar -->
     <nav id="navbar"
         class="fixed w-full backdrop-blur-md transition-transform duration-300 transform-gpu z-50 shadow-xl/30 items-center justify-between px-24 h-16 bg-yellow-800/70 text-white">
@@ -799,18 +821,18 @@
                 </li>
                 <li class="flex-start group relative flex lg:flex-col">
                     <span
-                        class="absolute left-[18px] top-14 h-[calc(100%_-_32px)] w-px bg-gray-300 lg:right-0 lg:left-auto lg:top-[18px] lg:h-px lg:w-[calc(100%_-_72px)]"
+                        class="absolute left-[18px] top-14 h-[calc(100%_-_32px)] w-px bg-gray-600 lg:right-0 lg:left-auto lg:top-[18px] lg:h-px lg:w-[calc(100%_-_72px)]"
                         aria-hidden="true"></span>
                     <div
-                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-gray-300 bg-gray-50 transition-all duration-200 group-hover:border-gray-900 group-hover:bg-gray-900"><a href="./events/kilifi-creek-2026.html">31st</a>
+                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-black/50 backdrop-blur-2xl text-yellow-500 font-bold transition-all duration-200 group-hover:border-yellow-500 group-hover:bg-yellow-900"><a href="./events/kilifi-creek-2026.html" style="color: white !important;">31st</a>
                         
                     </div>
                     <div class="ml-6 lg:ml-0 lg:mt-10">
                         <h3
-                            class="text-xl font-bold text-gray-900 before:mb-2 before:block before:font-mono before:text-sm before:text-gray-500">
-                            <a href="./events/kilifi-creek-2026.html">Vipingo Ridge</a></h3>
-                        <h4 class="mt-2 text-sm text-gray-700">YORA Awards Night!</h4>
-                        <h4 class="mt-2 text-sm text-gray-700">Bonus Screenings!</h4>
+                            class="text-xl font-bold text-white before:mb-2 before:block before:font-mono before:text-sm before:text-gray-400">
+                            <a href="./events/kilifi-creek-2026.html" style="color: white !important;">Vipingo Ridge</a></h3>
+                        <h4 class="mt-2 text-sm text-gray-300">YORA Awards Night!</h4>
+                        <h4 class="mt-2 text-sm text-gray-300">Bonus Screenings!</h4>
                     </div>
                     <!--modal  -->
                         <div class="grid" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
@@ -897,63 +919,55 @@
             </div>
         </div>
     </div>
-    <div class="w-2/4 justify-self-center text-center mt-20">
-        <h2 class="font-display font-bold text-2xl md:text-3xl lg:text-4xl mb-6">FESTIVAL HEADQUARTERS</h2>
-        <p class="font-light text-gray-600 text-sm md:text-base mb-6 leading-relaxed">An Innovative Venue for a Unique
-            Festival Experience
-        </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 border-y border-white/5">
-
-        <div class="bg-black/50 p-0 md:p-0 flex justify-start text-white backdrop-blur-2xl">
-            <div class="justify-center-safe max-w-full py-10 px-16 text-left">
-                <h2 class="font-display font-bold text-xl md:text-2xl lg:text-3xl mb-6 text-white" style="font-family: 'Playtime With Hot Toddies', sans-serif;">The Terrace Art Space</h2>
-                <p class="font-light text-gray-200 text-sm md:text-base mb-6 leading-relaxed pr-9">P.O.Box 422, Plot 8 Mnarani,
-                    Bandari Beach, Kilifi.</p>
+    <!-- Festival Headquarters Redesign -->
+    <section class="py-24 px-6 relative overflow-hidden">
+        <div class="container max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block py-1 px-3 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-500 text-xs font-bold uppercase tracking-widest mb-4">Our Base</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight" style="font-family: 'Playtime With Hot Toddies', sans-serif;">FESTIVAL HEADQUARTERS</h2>
+                <div class="w-24 h-1 bg-yellow-600 mx-auto mt-6 rounded-full"></div>
             </div>
-        </div>
-        <div class="md:order-first bg-black/50 p-0 md:p-0 flex backdrop-blur-2xl border-r border-white/5">
-            <div class="mapouter w-full h-72" style="position:relative; text-align:right;">
-                <div class="gmap_canvas overflow-hidden w-full h-full" style="background:none!important;">
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-[2.5rem] overflow-hidden bg-black/50 backdrop-blur-3xl border border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)]">
+                <!-- Address & Info -->
+                <div class="p-10 md:p-16 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/5">
+                    <h3 class="text-3xl font-bold text-white mb-8" style="font-family: 'Playtime With Hot Toddies', sans-serif;">The Terrace Art Space</h3>
+                    <p class="text-gray-300 text-lg mb-10 leading-relaxed font-light">
+                        An innovative venue on the shores of the creek, serving as the creative heart of the festival. Join us for screenings, workshops, and sunset conversations.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-yellow-600/10 rounded-xl flex items-center justify-center border border-yellow-600/20">
+                                <svg class="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            </div>
+                            <div>
+                                <p class="text-[10px] uppercase tracking-widest text-yellow-600 font-bold">Location</p>
+                                <p class="text-white font-medium">Mnarani, Bandari Beach, Kilifi</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-yellow-600/10 rounded-xl flex items-center justify-center border border-yellow-600/20">
+                                <svg class="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            </div>
+                            <div>
+                                <p class="text-[10px] uppercase tracking-widest text-yellow-600 font-bold">Contact</p>
+                                <p class="text-white font-medium">info@kilificreekfestival.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="h-[400px] lg:h-full min-h-[400px] relative grayscale hover:grayscale-0 transition-all duration-1000 group">
                     <iframe class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"
                         src="https://www.google.com/maps/embed/v1/place?q=the%20terrace%20kilifi&key={{GOOGLE_MAPS_API_KEY}}"></iframe>
+                    <div class="absolute inset-0 bg-yellow-900/10 pointer-events-none group-hover:bg-transparent transition-colors duration-1000"></div>
                 </div>
-                <a href="https://norsumediagroup.com/embed-google-map-website-free" target="_blank"
-                    rel="noopener noreferrer" class="gme-generated-link">Embed Map on Website for Free</a>
-                <style>
-                    .mapouter {
-                        position: relative;
-                        text-align: right;
-                    }
-
-                    .gmap_canvas {
-                        overflow: hidden;
-                        background: none !important;
-                    }
-
-                    .gmap_canvas iframe {
-                        width: 100%;
-                        height: 100%;
-                    }
-
-                    .mapouter a {
-                        display: block;
-                        font-size: 0.85em;
-                        text-align: center;
-                        padding: 5px 0;
-                        color: #6c757d;
-                        text-decoration: none;
-                    }
-
-                    .gme-generated-link {
-                        display: none !important;
-                    }
-                </style>
             </div>
         </div>
-    </div>
+    </section>
     <footer
         class="bg-gray-900 text-white text-opacity-40 font-semibold uppercase text-xs tracking-widest bg-opacity-80 px-12">
         <div class="container mx-auto md:flex md:items-center md:justify-between text-center lg:text-left py-24">
