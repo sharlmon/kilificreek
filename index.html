@@ -33,14 +33,50 @@
                 }
             }
         }
-    </script>
+    <style>
+        /* Hero Optimization Styles */
+        .hero-blur-overlay {
+            position: fixed;
+            inset: 0;
+            backdrop-filter: blur(12px) brightness(0.7);
+            -webkit-backdrop-filter: blur(12px) brightness(0.7);
+            /* Keeps the top 25% clear using a linear gradient mask */
+            mask-image: linear-gradient(to bottom, transparent 0%, transparent 20%, black 35%, black 100%);
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 20%, black 35%, black 100%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Fluid Typography and Readability */
+        .fluid-heading-primary {
+            font-size: clamp(2rem, 8vw, 4.5rem);
+            line-height: 1.1;
+            text-shadow: 0 8px 16px rgba(0,0,0,0.8), 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .fluid-heading-secondary {
+            font-size: clamp(1rem, 4vw, 1.75rem);
+            text-shadow: 0 4px 8px rgba(0,0,0,0.8);
+        }
+
+        /* Mobile Image Alignment */
+        @media (max-width: 768px) {
+            body {
+                background-position: 70% center !important;
+            }
+            .hero-blur-overlay {
+                mask-image: linear-gradient(to bottom, transparent 0%, transparent 15%, black 25%, black 100%);
+                -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 15%, black 25%, black 100%);
+            }
+        }
+    </style>
 </head>
 
 <body class="antialiased min-h-screen" style="font-family: 'Times New Roman', Times, serif; color: #ffffff; background-color: #000000; background-image: url('home.jpg'); background-repeat: no-repeat; background-position: center center; background-attachment: fixed; background-size: cover;">
-    <!-- Global Background Background (Less Blur for index) -->
-    <div class="fixed inset-0 bg-black/30 backdrop-blur-[2px] z-[-1] pointer-events-none"></div>
+    <!-- Selective Hero Blur Overlay (Top Clear) -->
+    <div class="hero-blur-overlay"></div>
     <!-- Dark Vignette for depth -->
-    <div class="fixed inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40 z-[-1] pointer-events-none"></div>
+    <div class="fixed inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 z-[-1] pointer-events-none"></div>
     <!-- Navbar -->
     <nav id="navbar"
         class="fixed w-full backdrop-blur-md transition-transform duration-300 transform-gpu z-50 shadow-xl/30 items-center justify-between px-24 h-16 bg-yellow-800/70 text-white">
@@ -102,12 +138,12 @@
         }));
     </script>
 
-    <div class="relative w-screen h-screen bg-transparent text-center grid grid-flow-row pt-16">
-        <div class="grid border-y border-white/5">
-            <p class="text-white text-right text-2xl md:text-3xl lg:text-3xl xl:text-3xl text-shadow-lg/30 pt-6 pr-24"
+    <div class="relative w-screen h-screen bg-transparent text-center grid grid-flow-row pt-16 items-center">
+        <div class="grid border-y border-white/10 py-12 px-6">
+            <p class="text-white text-right fluid-heading-secondary text-shadow-lg pt-2 pr-4 md:pr-24 mb-4"
                 style="font-family: 'Playtime With Hot Toddies', sans-serif;">23rd - 31st Oct 2026 | Kilifi Creek, Kenya</p>
-            <h1 class="text-white text-center text-5xl md:text-5xl lg:text-7xl xl:text-7xl font-bold text-shadow-lg/30"
-                style="font-family: 'SNOWMAS', sans-serif;">Film Screenings in 7 Venues along the kilifi Creek!</h1>
+            <h1 class="text-white text-center fluid-heading-primary font-bold text-shadow-2xl px-4"
+                style="font-family: 'SNOWMAS', sans-serif;">Film Screenings in 7 Venues along the Kilifi Creek!</h1>
         </div>
         <div class="grid content-start">
             <!--<h1 class="text-white text-center text-5xl md:text-5xl lg:text-7xl xl:text-7xl font-bold text-shadow-lg/30" style="font-family: 'SNOWMAS', sans-serif;">Film Screenings in 7 Venues along the kilifi Creek!</h1>-->
