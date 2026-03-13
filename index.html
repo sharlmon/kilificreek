@@ -51,6 +51,33 @@
             z-index: 10;
         }
 
+        /* Community Creators Title Shadow */
+        .community-title {
+            text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Infinite Ticker Scaling Fixes */
+        .logo-scroll-container {
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .logo-ticker-track {
+            display: flex;
+            width: max-content;
+            animation: ticker-move 40s linear infinite;
+        }
+
+        @keyframes ticker-move {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .logo-item {
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out, filter 0.3s ease-out;
+            will-change: transform, opacity;
+        }
+
         /* ─── Full-Screen Mobile Menu ─── */
         .mobile-menu-overlay { z-index: 9999;
             position: fixed;
@@ -203,116 +230,80 @@
         </div>
     </div>
     <!-- Partners and logos-->
-    <section class="flex flex-col gap-12 py-20 z-10 border-y border-gray-100 bg-gray-50/50">
-        <div class="flex gap-6 flex-col px-4 h-full relative md:w-[85%] w-[95%] mx-auto">
-            <div class="items-center gap-6 flex">
+    <section class="flex flex-col gap-12 py-[150px] z-10 border-y border-gray-100" style="background-color: #FAF9F6;">
+        <div class="flex gap-12 flex-col h-full relative w-full">
+            <div class="items-center gap-6 flex px-4 md:w-[85%] mx-auto w-full">
                 <div class="p-8 md:p-12 rounded-sm border-l-8 border-yellow-800">
-                    <h2 class="font-poppins text-4xl md:text-6xl shrink-0 font-bold text-gray-900 mb-4 tracking-tight">
+                    <h2 class="font-poppins text-4xl md:text-6xl shrink-0 font-bold text-gray-900 mb-4 tracking-tight community-title">
                         Our Community of Creators
                     </h2>
-                    <p class="text-yellow-800 text-base md:text-lg tracking-widest uppercase font-bold">
+                    <p class="text-yellow-800 text-base md:text-lg tracking-widest uppercase font-bold community-title">
                         Empowering the voices that shape our global culture.
                     </p>
                 </div>
                 <div class="bg-gray-200 h-[2px] rounded-full w-full hidden md:block"></div>
             </div>
-            <div id="scroll-container"
-                class="flex flex-1 overflow-x-scroll no-scrollbar h-32 md:h-44 hover:animate-none relative flex-col gap-2 scroll-linear">
-                <ul class="px-6 flex gap-10 md:gap-16 h-full">
-                    <li class="h-full">
-                        <img src="./static/images/logo/afrofilms.png" class="w-48 md:w-72 shrink-0 object-contain mx-4" alt="" />
-                    </li>
-                    <li class="h-full">
-                        <img src="./static/images/logo/baruu.png" class="w-48 md:w-72 shrink-0 object-contain mx-4" alt="" />
-                    </li>
 
-                    <li class="h-full">
-                        <img src="./static/images/logo/terrace.png" class="w-48 md:w-72 shrink-0 object-contain mx-4" alt="" />
-                    </li>
-                    <li class="h-full">
-                        <img src="./static/images/logo/tawi.png" class="w-48 md:w-72 shrink-0 object-contain mx-4" alt="" />
-                    </li>
-                    <li class="h-full">
-                        <img src="./static/images/logo/afrofilms.png" class="w-48 md:w-72 shrink-0 object-contain mx-4" alt="" />
-                    </li>
-                    <li class="h-full">
-                        <img src="./static/images/logo/baruu.png" class="w-48 md:w-72 shrink-0 object-contain mx-4" alt="" />
-                    </li>
-
-                    <li class="h-full">
-                        <img src="./static/images/logo/terrace.png" class="w-48 md:w-72 shrink-0 object-contain mx-4" alt="" />
-                    </li>
-                    <li class="h-full">
-                        <img src="./static/images/logo/tawi.png" class="w-48 md:w-72 shrink-0 object-contain mx-4" alt="" />
-                    </li>
-                    <li class="h-full">
-                        <img src="./static/images/logo/afrofilms.png" class="w-48 md:w-72 shrink-0 object-contain mx-4" alt="" />
-                    </li>
-                    <li class="h-full">
-                        <img src="./static/images/logo/baruu.png" class="w-48 md:w-72 shrink-0 object-contain mx-4" alt="" />
-                    </li>
-
-                    <li class="h-full">
-                        <img src="./static/images/logo/terrace.png" class="w-48 md:w-72 shrink-0 object-contain mx-4" alt="" />
-                    </li>
-                    <li class="h-full">
-                        <img src="./static/images/logo/tawi.png" class="w-48 md:w-72 shrink-0 object-contain mx-4" alt="" />
-                    </li>
-                </ul>
+            <div x-data="logoCarousel()" class="logo-scroll-container overflow-hidden py-32">
+                <div class="logo-ticker-track" @mouseover="pause = true" @mouseleave="pause = false" :style="pause ? 'animation-play-state: paused' : ''">
+                    <!-- Duplicate list for infinite scroll -->
+                    <template x-for="i in 2">
+                        <ul class="flex items-center gap-24 md:gap-48 px-12">
+                            <li class="logo-item flex-shrink-0" x-init="observeCenter($el)">
+                                <img src="./static/images/logo/afrofilms.png" class="w-48 md:w-64 grayscale hover:grayscale-0 transition-all duration-500" alt="Afro Films" />
+                            </li>
+                            <li class="logo-item flex-shrink-0" x-init="observeCenter($el)">
+                                <img src="./static/images/logo/baruu.png" class="w-48 md:w-64 grayscale hover:grayscale-0 transition-all duration-500" alt="Baruu Collective" />
+                            </li>
+                            <li class="logo-item flex-shrink-0" x-init="observeCenter($el)">
+                                <img src="./static/images/logo/terrace.png" class="w-48 md:w-64 grayscale hover:grayscale-0 transition-all duration-500" alt="The Terrace" />
+                            </li>
+                            <li class="logo-item flex-shrink-0" x-init="observeCenter($el)">
+                                <img src="./static/images/logo/tawi.png" class="w-48 md:w-64 grayscale hover:grayscale-0 transition-all duration-500" alt="Tawi Hub" />
+                            </li>
+                        </ul>
+                    </template>
+                </div>
             </div>
         </div>
-        <style>
-            .scroll-linear>ul {
-                animation: animate-linear 15s linear infinite;
-                transition: transform 1s ease-out;
-                will-change: transform;
-            }
 
-            .scroll-linear:hover>ul {
-                animation-play-state: paused;
-            }
+        <script>
+            function logoCarousel() {
+                return {
+                    pause: false,
+                    observeCenter(el) {
+                        const updateScale = () => {
+                            const rect = el.getBoundingClientRect();
+                            const viewportCenter = window.innerWidth / 2;
+                            const elementCenter = rect.left + rect.width / 2;
+                            const distanceFromCenter = Math.abs(viewportCenter - elementCenter);
+                            
+                            // Max distance for animation (how far from center it starts scaling)
+                            const maxDist = window.innerWidth / 1.5;
+                            
+                            // Calculate scale factor (1.0 to 2.5 on desktop, 1.0 to 1.8 on mobile)
+                            const isMobile = window.innerWidth < 768;
+                            const maxScale = isMobile ? 1.8 : 2.5;
+                            
+                            let proximity = Math.max(0, 1 - (distanceFromCenter / (window.innerWidth / 2)));
+                            // Use an easing-like power to make the center pop more
+                            proximity = Math.pow(proximity, 2); 
+                            
+                            const scale = 1 + (maxScale - 1) * proximity;
+                            const opacity = 0.4 + (0.6 * proximity);
+                            const brightness = 0.5 + (0.5 * proximity);
 
-            @keyframes animate-linear {
-                0% {
-                    transform: translateX(0%);
-                }
+                            el.style.transform = `scale(${scale})`;
+                            el.style.opacity = opacity;
+                            el.style.filter = `brightness(${brightness})`;
 
-                100% {
-                    transform: translateX(-100%);
-                }
-            }
-
-            /* Row Two Start */
-            .scroll-linear-two>ul {
-                animation: animate-linear-two 15s linear infinite;
-                transition: transform 1s ease-out;
-                will-change: transform;
-            }
-
-            .scroll-linear-two:hover>ul {
-                animation-play-state: paused;
-            }
-
-            @keyframes animate-linear-two {
-                0% {
-                    transform: translateX(75%);
-                }
-
-                100% {
-                    transform: translateX(-100%);
+                            requestAnimationFrame(updateScale);
+                        };
+                        requestAnimationFrame(updateScale);
+                    }
                 }
             }
-
-            /* Row Two End */
-            .no-scrollbar ::-webkit-scrollbar {
-                display: none;
-            }
-
-            .no-scrollbar {
-                -ms-overflow-style: none;
-                scrollbar-width: none;
-            }
-        </style>
+        </script>
     </section>
     <!--Partners and logos-->
 
