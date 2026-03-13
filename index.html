@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en" class="scroll-smooth">
 
 <head>
@@ -25,11 +25,7 @@
                             dark: '#0a0a0a',
                         }
                     },
-                    fontFamily: {
-                        display: ['"Playtime With Hot Toddies"', 'sans-serif'],
-                        heading: ['Snowmas', 'serif'],
-                        body: ['"Times New Roman"', 'serif'],
-                    }
+                    fontFamily: { display: ['"Times New Roman"', 'serif'], heading: ['"Times New Roman"', 'serif'], body: ['"Times New Roman"', 'serif'] }
                 }
             }
         }
@@ -244,14 +240,17 @@
     </script>
 
     <div class="relative w-screen h-screen bg-[url('./home.jpg')] bg-cover bg-center bg-fixed text-center grid grid-flow-row pt-16 items-center">
-        <div class="md:mx-auto max-w-5xl px-4">
+        <!-- Contrast Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/20 pointer-events-none"></div>
+
+        <div class="relative z-10 md:mx-auto max-w-5xl px-4 py-12 rounded-3xl backdrop-blur-[10px] border border-white/10 bg-black/5 mx-4">
             <p class="text-white text-right fluid-heading-secondary pt-2 pr-4 md:pr-24 mb-4"
-                style="font-family: 'Playtime With Hot Toddies', sans-serif;">23rd - 31st Oct 2026 | Kilifi Creek, Kenya</p>
+                style="font-family: 'Times New Roman', Times, serif;">23rd - 31st Oct 2026 | Kilifi Creek, Kenya</p>
             <h1 class="text-white text-center fluid-heading-primary font-bold px-4"
-                style="font-family: 'SNOWMAS', sans-serif;">Film Screenings in 7 Venues along the Kilifi Creek!</h1>
+                style="font-family: 'Times New Roman', Times, serif;">Film Screenings in 7 Venues along the Kilifi Creek!</h1>
         </div>
         <div class="grid content-start">
-            <!--<h1 class="text-gray-900 text-center text-5xl md:text-5xl lg:text-7xl xl:text-7xl font-bold " style="font-family: 'SNOWMAS', sans-serif;">Film Screenings in 7 Venues along the kilifi Creek!</h1>-->
+            <!--<h1 class="text-gray-900 text-center text-5xl md:text-5xl lg:text-7xl xl:text-7xl font-bold " style="font-family: 'Times New Roman', Times, serif;">Film Screenings in 7 Venues along the kilifi Creek!</h1>-->
         </div>
         <div class="grid place-items-center">
             <!--<a href="#PROGRAM" class="inline-block bg-yellow-800/60 hover:bg-yellow-800/90  rounded-sm text-white uppercase text-sm tracking-widest font-heading px-8 py-4">FESTIVAL PROGRAM</a>-->
@@ -313,15 +312,15 @@
             </div>
         </div>
     </div>
-    <div class="relative w-screen mt-24 md:mt-32 mb-16 bg-[url(./image4.jpg)] bg-cover bg-center bg-fixed text-center">
+    <div class="relative w-screen mt-32 md:mt-48 mb-16 bg-[url(./image4.jpg)] bg-cover bg-center bg-fixed text-center">
         <div class="relative z-10 text-center py-24 md:py-24"><div class="bg-white/40 backdrop-blur-2xl max-w-4xl mx-auto rounded-3xl p-12 shadow-2xl border border-white/20">
-            <h1 class="text-gray-900 text-center text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-6"
-                style="font-family: 'Playtime With Hot Toddies', sans-serif;"> KCF THEME 2026</h1>
+            <h1 class="text-gray-900 text-center text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6"
+                style="font-family: 'Times New Roman', Times, serif;"> KCF THEME 2026</h1>
             <div class="w-36 h-1 bg-white shadow-xl/30 mb-4 mx-auto"></div>
-            <h2 class="font-display font-bold text-white  text-3xl md:text-5xl lg:text-5xl mb-6 uppercase"
-                style="font-family: 'SNOWMAS', sans-serif;">‘Water is Memory, Movement, and Magic’</h2>
-            <h2 class="font-display font-bold text-gray-900 text-3xl md:text-5xl lg:text-5xl mb-6"
-                style="font-family: 'SNOWMAS', sans-serif;">With the tide’s gentle flow, we celebrate the power of art
+            <h2 class="font-bold text-white  text-3xl md:text-5xl lg:text-5xl mb-6 uppercase"
+                style="font-family: 'Times New Roman', Times, serif;">‘Water is Memory, Movement, and Magic’</h2>
+            <h2 class="font-bold text-gray-900 text-3xl md:text-5xl lg:text-5xl mb-6"
+                style="font-family: 'Times New Roman', Times, serif;">With the tide’s gentle flow, we celebrate the power of art
                 <br>to Revive, Reconnect, and Regenerate.</h2>
             </div>
         </div>
@@ -331,7 +330,7 @@
     <div class="py-24 text-center px-6">
         <div class="max-w-4xl mx-auto bg-yellow-900/60 backdrop-blur-2xl text-white shadow-2xl rounded-[3rem] p-12 md:p-20 border border-yellow-700/30">
             <p class="text-yellow-400 uppercase tracking-[0.3em] text-xs font-bold mb-6">Call for Entries</p>
-            <h2 class="text-4xl md:text-6xl font-bold mb-8 tracking-tight" style="font-family: 'Playtime With Hot Toddies', sans-serif;">Join the Vanguard of African Cinema</h2>
+            <h2 class="text-4xl md:text-6xl font-bold mb-8 tracking-tight" style="font-family: 'Times New Roman', Times, serif;">Join the Vanguard of African Cinema</h2>
             <p class="text-yellow-50/80 text-lg md:text-xl mb-12 font-light leading-relaxed max-w-2xl mx-auto italic">
                 "Kilifi Creek is calling. Submit your stories and let them flow with the tide."
             </p>
@@ -493,7 +492,7 @@
         <div class="md:order-first bg-white p-12 md:p-24 flex justify-end items-center ">
             <div class="max-w-md">
                 <div class="w-24 h-2 bg-yellow-800 mb-4 shadow-lg"></div>
-                <h2 class="font-display font-bold text-2xl md:text-3xl lg:text-4xl mb-6 text-gray-900" style="font-family: 'Playtime With Hot Toddies', sans-serif;">Festival Team</h2>
+                <h2 class="font-bold text-2xl md:text-3xl lg:text-4xl mb-6 text-gray-900" style="font-family: 'Times New Roman', Times, serif;">Festival Team</h2>
                 <p class="font-light text-gray-600 text-sm md:text-base mb-6 leading-relaxed">The festival brings together global film leaders and local creatives, led by
                     renowned Kenyan filmmakers Zippy Kimundu (Afrofilms International), Saitabao Kaiyare and Mumo Liku
                     (Baruu collective) and acclaimed author and activist Kevin Mwachiro as Festival Director.</p>
@@ -508,14 +507,14 @@
         <div class="container max-w-6xl mx-auto">
             <div class="text-center mb-16">
                 <span class="inline-block py-1 px-3 rounded-full bg-yellow-100 border border-yellow-200 text-yellow-800 text-xs font-bold uppercase tracking-widest mb-4">Our Base</span>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight" style="font-family: 'Playtime With Hot Toddies', sans-serif;">FESTIVAL HEADQUARTERS</h2>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight" style="font-family: 'Times New Roman', Times, serif;">FESTIVAL HEADQUARTERS</h2>
                 <div class="w-24 h-1 bg-yellow-600 mx-auto mt-6 rounded-full"></div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-[2.5rem] overflow-hidden bg-white rounded-3xl border border-gray-100 shadow-2xl border border-gray-100 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)]">
                 <!-- Address & Info -->
                 <div class="p-10 md:p-16 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-gray-100">
-                    <h3 class="text-3xl font-bold text-gray-900 mb-8" style="font-family: 'Playtime With Hot Toddies', sans-serif;">The Terrace Art Space</h3>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-8" style="font-family: 'Times New Roman', Times, serif;">The Terrace Art Space</h3>
                     <p class="text-gray-600 text-lg mb-10 leading-relaxed font-light">
                         An innovative venue on the shores of the creek, serving as the creative heart of the festival. Join us for screenings, workshops, and sunset conversations.
                     </p>
