@@ -116,14 +116,14 @@
     </style>
 </head>
 
-<body class="antialiased min-h-screen" style="font-family: 'Times New Roman', Times, serif; color: #ffffff; background-color: #000000; background-image: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('home.jpg'); background-repeat: no-repeat; background-position: center center; background-attachment: fixed; background-size: cover;">
+<body class="antialiased min-h-screen" style="font-family: 'Times New Roman', Times, serif; color: #ffffff; background-color: #000000; background-image: url('home.jpg'); background-repeat: no-repeat; background-position: center center; background-attachment: fixed; background-size: cover;">
     <!-- Selective Hero Blur Overlay (Top Clear) -->
     <!-- Navbar -->
     <nav id="navbar"
-        class="fixed w-full  transition-transform duration-300 transform-gpu z-50 shadow-xl/30 items-center justify-between px-24 h-16 bg-yellow-800/70 text-white">
+        class="fixed w-full  transition-transform duration-300 transform-gpu z-50 shadow-xl/30 items-center justify-between px-4 md:px-12 lg:px-24 h-16 bg-yellow-800/70 text-white">
         <div class="container mx-auto flex justify-between items-center">
             <!-- Logo -->
-            <div class="h-16 w-24 visible"><img class="pt-5" src="./static/images/logo/logo.png" /></div>
+            <a href="index.html" class="flex-shrink-0"><img class="h-12 w-auto py-2 object-contain" src="./static/images/logo/logo.png" /></a>
 
             <!-- Navigation Links -->
             <ul
@@ -336,7 +336,7 @@
             </div>
         </div>
     </div>
-    <div class="relative w-screen mt-12 md:mt-24 bg-[url(./image4.jpg)] bg-cover bg-center bg-fixed text-center">
+    <div class="relative w-screen mt-24 md:mt-32 mb-16 bg-[url(./image4.jpg)] bg-cover bg-center bg-fixed text-center">
         <div class="relative z-10 text-center py-24 md:py-24">
             <h1 class="text-white text-center text-3xl text-shadow-lg/30 md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-6"
                 style="font-family: 'Playtime With Hot Toddies', sans-serif;"> KCF THEME 2026</h1>
