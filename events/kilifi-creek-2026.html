@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en" class="scroll-smooth">
 
 <head>
@@ -15,14 +15,22 @@
   <link href="https://fonts.cdnfonts.com/css/playtime-with-hot-toddies" rel="stylesheet">
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/dist/cdn.min.js"></script>
   <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .mobile-menu-overlay{position:fixed;inset:0;z-index:100;background:#1a1a1a;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);pointer-events:none}
+        .mobile-menu-overlay.open{transform:translateX(0);pointer-events:auto}
+        .mobile-menu-overlay a{display:block;color:#fff;font-size:1.25rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;padding:1rem 2rem;text-align:center;transition:background .2s,color .2s;border-radius:6px;width:80%;max-width:320px}
+        .mobile-menu-overlay a:hover,.mobile-menu-overlay a:focus{background:rgba(255,255,255,0.1)}
+        .mobile-menu-overlay .mobile-submit-btn { margin-top: 2rem; background: #facc15; color: #1a1a1a;padding:1rem 2.5rem;border-radius:6px;font-weight:700;letter-spacing:.06em}
+        .mobile-menu-overlay .mobile-submit-btn:hover{background:#facc15}
+        .mobile-menu-close{position:absolute;top:1.25rem;right:1.25rem;background:none;border:none;color:#fff;cursor:pointer;padding:.5rem}
+    </style>
 </head>
 
 <body class="antialiased min-h-screen" style="font-family: 'Times New Roman', Times, serif; color: #ffffff; background-color: #000000; background-image: url('../home.jpg'); background-repeat: no-repeat; background-position: center center; background-attachment: fixed; background-size: cover;">
     <!-- Global Background Blur Overlay (Restored Visibility) -->
-    <div class="fixed inset-0 bg-black/40 backdrop-blur-[4px] z-[-1] pointer-events-none"></div>
-  <!-- Navbar -->
+    <!-- Navbar -->
   <nav id="navbar"
-    class="fixed w-full backdrop-blur-md transition-transform duration-300 transform-gpu z-50 shadow-xl/30 items-center justify-between px-24 h-16 bg-yellow-800/70 text-white">
+    class="fixed w-full  transition-transform duration-300 transform-gpu z-50 shadow-xl/30 items-center justify-between px-24 h-16 bg-yellow-800/70 text-white">
     <div class="container mx-auto flex justify-between items-center">
       <!-- Logo -->
       <div class="h-16 w-24 visible"><img class="pt-5" src="../static/images/logo/logo.png" /></div>
@@ -42,25 +50,28 @@
       </ul>
 
       <!-- Mobile Menu Button -->
-      <button id="menu-btn" class="md:hidden flex items-center text-gray-700">
+      <button id="menu-btn" class="md:hidden flex items-center text-white" aria-label="Open menu">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
-          class="w-6 h-6">
+          class="w-7 h-7">
           <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
         </svg>
       </button>
-    </div>
+    </div>    </nav>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden bg-white md:hidden shadow-md">
-      <ul class="space-y-4 p-4 font-medium">
-        <li><a href="index.html" class="block md:inline-block  px-3 py-3 md:border-none">Home</a></li>
-        <li><a href="about-us.html" class="block md:inline-block  px-3 py-3 md:border-none">About us</a></li>
-        <li><a href="team.html" class="block md:inline-block  px-3 py-3 md:border-none">Our Team</a></li>
-        <li><a href="events.html" class="block md:inline-block  px-3 py-3 md:border-none">Events</a></li>
-        <li><a href="contact-us.html" class="block md:inline-block  px-3 py-3 md:border-none">Contact Us</a></li>
-      </ul>
+    <!-- Full-Screen Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu-overlay">
+        <button id="menu-close" class="mobile-menu-close" aria-label="Close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <a href="../index.html">Home</a>
+        <a href="../about-us.html">About Us</a>
+        <a href="../team.html">Our Team</a>
+        <a href="../events.html">Events</a>
+        <a href="../contact-us.html">Contact</a>
+        <a href="https://filmfreeway.com/KilifiCreekFestival" target="_blank" class="mobile-submit-btn">ðŸŽ¬ Submit Film</a>
     </div>
-  </nav>
   <script>
     let prevScrollPos = window.pageYOffset;
     const navbar = document.getElementById("navbar");

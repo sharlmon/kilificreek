@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en" class="scroll-smooth">
 
 <head>
@@ -11,11 +11,20 @@
     <link
         href="../fonts.googleapis.com/css2%EF%B9%96family=Fira+Sans+Condensed%EF%B9%95wght@100%EF%B9%94200%EF%B9%94300%EF%B9%94400%EF%B9%94500%EF%B9%94600%EF%B9%94700&amp;family=Playfair+Display%EF%B9%95wght@100%EF%B9%94200%EF%B9%94300%EF%B9%94400%EF%B9%94500%EF%B9%94600%EF%B9%94700&amp;family=Overpass%EF%B9%95wght@200%EF%B9%94300%EF%B9%94400%EF%B9%94600%EF%B9%94700&amp;display=swap.css"
         rel="stylesheet">
+    <style>
+        .mobile-menu-overlay{position:fixed;inset:0;z-index:100;background:#1a1a1a;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:translateX(100%);transition:transform .35s cubic-bezier(.4,0,.2,1);pointer-events:none}
+        .mobile-menu-overlay.open{transform:translateX(0);pointer-events:auto}
+        .mobile-menu-overlay a{display:block;color:#fff;font-size:1.25rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;padding:1rem 2rem;text-align:center;transition:background .2s,color .2s;border-radius:6px;width:80%;max-width:320px}
+        .mobile-menu-overlay a:hover,.mobile-menu-overlay a:focus{background:rgba(255,255,255,0.1)}
+        .mobile-menu-overlay .mobile-submit-btn { margin-top: 2rem; background: #facc15; color: #1a1a1a;padding:1rem 2.5rem;border-radius:6px;font-weight:700;letter-spacing:.06em}
+        .mobile-menu-overlay .mobile-submit-btn:hover{background:#facc15}
+        .mobile-menu-close{position:absolute;top:1.25rem;right:1.25rem;background:none;border:none;color:#fff;cursor:pointer;padding:.5rem}
+    </style>
 </head>
 
 <body class="font-sans text-gray-700 antialiased bg-white">
     <!-- Navbar -->
-    <nav id="navbar" class="fixed w-full backdrop-blur-md transition-transform duration-300 transform-gpu z-50 shadow-xl/30 items-center justify-between px-24 h-16 bg-yellow-800/80 text-white">
+    <nav id="navbar" class="fixed w-full  transition-transform duration-300 transform-gpu z-50 shadow-xl/30 items-center justify-between px-24 h-16 bg-yellow-800/80 text-white">
         <div class="container mx-auto flex justify-between items-center">
             <!-- Logo -->
             <div class="h-16 w-24 visible"><img class="pt-5" src="../static/images/logo/logo.png" /></div>
@@ -30,25 +39,28 @@
             </ul>
 
             <!-- Mobile Menu Button -->
-            <button id="menu-btn" class="md:hidden flex items-center text-gray-700">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+            <button id="menu-btn" class="md:hidden flex items-center text-white" aria-label="Open menu">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
-        </div>
+        </div>    </nav>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden bg-white md:hidden shadow-md">
-            <ul class="space-y-4 p-4 font-medium">
-                <a href="../index.html" class="block md:inline-block  px-3 py-3 md:border-none hover:rounded-sm hover:bg-white/20">Home</a>
-                <a href="../about-us.html" class="block md:inline-block  px-3 py-3 md:border-none hover:rounded-sm hover:bg-white/20">About us</a>
-                <a href="../team.html" class="block md:inline-block  px-3 py-3 md:border-none hover:rounded-sm hover:bg-white/20">Our Team</a>
-                <a href="../events.html" class="block md:inline-block  px-3 py-3 md:border-none hover:rounded-sm hover:bg-white/20">Events</a>
-                <a href="../contact-us.html" class="block md:inline-block  px-3 py-3 md:border-none hover:rounded-sm hover:bg-white/20">Contact</a>
-            </ul>
-        </div>
-    </nav>
-    <script>let prevScrollPos=window.pageYOffset;const navbar=document.getElementById("navbar");window.onscroll=function(){let e=window.pageYOffset;navbar.style.transform=prevScrollPos>e?"translateY(0)":"translateY(-100%)",prevScrollPos=e};const menuBtn=document.getElementById("menu-btn"),mobileMenu=document.getElementById("mobile-menu");menuBtn.addEventListener("click",(()=>{mobileMenu.classList.toggle("hidden")}));</script>
+    <!-- Full-Screen Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu-overlay">
+        <button id="menu-close" class="mobile-menu-close" aria-label="Close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <a href="../index.html">Home</a>
+        <a href="../about-us.html">About Us</a>
+        <a href="../team.html">Our Team</a>
+        <a href="../events.html">Events</a>
+        <a href="../contact-us.html">Contact</a>
+        <a href="https://filmfreeway.com/KilifiCreekFestival" target="_blank" class="mobile-submit-btn">ðŸŽ¬ Submit Film</a>
+    </div>
+    <script>let prevScrollPos=window.pageYOffset;const navbar=document.getElementById("navbar");window.onscroll=function(){let e=window.pageYOffset;navbar.style.transform=prevScrollPos>e?"translateY(0)":"translateY(-100%)",prevScrollPos=e};const menuBtn=document.getElementById("menu-btn");const menuClose=document.getElementById("menu-close");const mobileMenu=document.getElementById("mobile-menu");function openMenu(){mobileMenu.classList.add("open");document.body.style.overflow="hidden"}function closeMenu(){mobileMenu.classList.remove("open");document.body.style.overflow=""}menuBtn.addEventListener("click",openMenu);menuClose.addEventListener("click",closeMenu);mobileMenu.querySelectorAll("a").forEach(a=>a.addEventListener("click",closeMenu));document.addEventListener("keydown",e=>{if(e.key==="Escape")closeMenu()});</script>
 
     <!-- Hero Section -->
     <div class="relative w-screen h-80 bg-[url(https://i.postimg.cc/K81mtjLV/Majajani-Partyieee32.jpg)] bg-cover bg-center bg-fixed text-center grid place-items-center pt-16 grayscale-90">
@@ -56,7 +68,7 @@
     </div>
 
     <!-- RSVP Form Section -->
-     <div class="p-10">
+     <div class="w-full px-4 sm:px-10 py-10">
         <!--<h1 class="mb-8 font-extrabold text-4xl">Register</h1>-->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 

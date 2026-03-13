@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en" class="scroll-smooth">
 
 <head>
@@ -35,23 +35,9 @@
         }
     </script>
     <style>
-        /* Hero Optimization Styles */
-        .hero-blur-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.45); /* Robust dark tint for contrast */
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            /* Keeps the top 25% clear using a linear gradient mask */
-            mask-image: linear-gradient(to bottom, transparent 0%, transparent 18%, black 32%, black 100%);
-            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 18%, black 32%, black 100%);
-            z-index: 0; /* Layered above the background but below content */
-            pointer-events: none;
-        }
-
         /* Fluid Typography and Readability */
         .fluid-heading-primary {
-            font-size: clamp(2rem, 8vw, 4.5rem);
+            font-size: clamp(1.75rem, 6vw + 0.5rem, 4.5rem);
             line-height: 1.1;
             text-shadow: 0 8px 16px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.6);
             position: relative;
@@ -59,33 +45,82 @@
         }
 
         .fluid-heading-secondary {
-            font-size: clamp(1rem, 4vw, 1.75rem);
+            font-size: clamp(0.9rem, 3vw + 0.25rem, 1.75rem);
             text-shadow: 0 4px 8px rgba(0,0,0,0.9);
             position: relative;
             z-index: 10;
         }
 
+        /* ─── Full-Screen Mobile Menu ─── */
+        .mobile-menu-overlay { z-index: 9999;
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+        .mobile-menu-overlay.open {
+            transform: translateX(0);
+            pointer-events: auto;
+        }
+        .mobile-menu-overlay a {
+            display: block;
+            color: #fff;
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 1rem 2rem;
+            text-align: center;
+            transition: background 0.2s, color 0.2s;
+            border-radius: 6px;
+            width: 80%;
+            max-width: 320px;
+        }
+        .mobile-menu-overlay a:hover,
+        .mobile-menu-overlay a:focus {
+            background: rgba(255,255,255,0.1);
+        }
+        .mobile-menu-overlay .mobile-submit-btn { margin-top: 2rem; background: #facc15; color: #1a1a1a;
+            padding: 1rem 2.5rem;
+            border-radius: 6px;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+        }
+        .mobile-menu-overlay .mobile-submit-btn:hover {
+            background: #facc15;
+        }
+        .mobile-menu-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
         /* Mobile Image Alignment */
         @media (max-width: 768px) {
             body {
-                background-position: 70% center !important;
+                background-position: center top !important;
             }
-            .hero-blur-overlay {
-                mask-image: linear-gradient(to bottom, transparent 0%, transparent 15%, black 25%, black 100%);
-                -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 15%, black 25%, black 100%);
             }
-        }
     </style>
 </head>
 
-<body class="antialiased min-h-screen" style="font-family: 'Times New Roman', Times, serif; color: #ffffff; background-color: #000000; background-image: url('home.jpg'); background-repeat: no-repeat; background-position: center center; background-attachment: fixed; background-size: cover;">
+<body class="antialiased min-h-screen" style="font-family: 'Times New Roman', Times, serif; color: #ffffff; background-color: #000000; background-image: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.2)), url('home.jpg'); background-repeat: no-repeat; background-position: center center; background-attachment: fixed; background-size: cover;">
     <!-- Selective Hero Blur Overlay (Top Clear) -->
-    <div class="hero-blur-overlay"></div>
-    <!-- Dark Vignette for depth -->
-    <div class="fixed inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 z-[-1] pointer-events-none"></div>
     <!-- Navbar -->
     <nav id="navbar"
-        class="fixed w-full backdrop-blur-md transition-transform duration-300 transform-gpu z-50 shadow-xl/30 items-center justify-between px-24 h-16 bg-yellow-800/70 text-white">
+        class="fixed w-full  transition-transform duration-300 transform-gpu z-50 shadow-xl/30 items-center justify-between px-24 h-16 bg-yellow-800/70 text-white">
         <div class="container mx-auto flex justify-between items-center">
             <!-- Logo -->
             <div class="h-16 w-24 visible"><img class="pt-5" src="./static/images/logo/logo.png" /></div>
@@ -110,26 +145,29 @@
             </ul>
 
             <!-- Mobile Menu Button -->
-            <button id="menu-btn" class="md:hidden flex items-center text-gray-700">
+            <button id="menu-btn" class="md:hidden flex items-center text-white" aria-label="Open menu">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                    stroke="currentColor" class="w-6 h-6">
+                    stroke="currentColor" class="w-7 h-7">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
             </button>
         </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden bg-white md:hidden shadow-md">
-            <ul class="space-y-4 p-4 font-medium">
-                <li><a href="index.html" class="block md:inline-block  px-3 py-3 md:border-none">Home</a></li>
-                <li><a href="about-us.html" class="block md:inline-block  px-3 py-3 md:border-none">About us</a></li>
-                <li><a href="team.html" class="block md:inline-block  px-3 py-3 md:border-none">Our Team</a></li>
-                <li><a href="events.html" class="block md:inline-block  px-3 py-3 md:border-none">Events</a></li>
-                <li><a href="contact-us.html" class="block md:inline-block  px-3 py-3 md:border-none">Contact Us</a>
-                </li>
-            </ul>
-        </div>
     </nav>
+
+    <!-- Full-Screen Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu-overlay">
+        <button id="menu-close" class="mobile-menu-close" aria-label="Close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <a href="index.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="team.html">Our Team</a>
+        <a href="events.html">Events</a>
+        <a href="contact-us.html">Contact</a>
+        <a href="https://filmfreeway.com/KilifiCreekFestival" target="_blank" class="mobile-submit-btn">🎬 Submit Film</a>
+    </div>
     <script>
         let prevScrollPos = window.pageYOffset;
         const navbar = document.getElementById("navbar");
@@ -137,15 +175,19 @@
             let e = window.pageYOffset;
             navbar.style.transform = prevScrollPos > e ? "translateY(0)" : "translateY(-100%)", prevScrollPos = e
         };
-        const menuBtn = document.getElementById("menu-btn"),
-            mobileMenu = document.getElementById("mobile-menu");
-        menuBtn.addEventListener("click", (() => {
-            mobileMenu.classList.toggle("hidden")
-        }));
+        const menuBtn = document.getElementById("menu-btn");
+        const menuClose = document.getElementById("menu-close");
+        const mobileMenu = document.getElementById("mobile-menu");
+        function openMenu() { mobileMenu.classList.add("open"); document.body.style.overflow = "hidden"; }
+        function closeMenu() { mobileMenu.classList.remove("open"); document.body.style.overflow = ""; }
+        menuBtn.addEventListener("click", openMenu);
+        menuClose.addEventListener("click", closeMenu);
+        mobileMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
+        document.addEventListener("keydown", e => { if (e.key === "Escape") closeMenu(); });
     </script>
 
     <div class="relative w-screen h-screen bg-transparent text-center grid grid-flow-row pt-16 items-center">
-        <div class="grid border-y border-white/10 py-12 px-6">
+        <div class="grid border border-white/10 py-12 px-6 bg-black/50 rounded-3xl mx-4 my-8 shadow-2xl md:mx-auto max-w-5xl backdrop-blur-[10px]">
             <p class="text-white text-right fluid-heading-secondary text-shadow-lg pt-2 pr-4 md:pr-24 mb-4"
                 style="font-family: 'Playtime With Hot Toddies', sans-serif;">23rd - 31st Oct 2026 | Kilifi Creek, Kenya</p>
             <h1 class="text-white text-center fluid-heading-primary font-bold text-shadow-2xl px-4"
@@ -155,7 +197,7 @@
             <!--<h1 class="text-white text-center text-5xl md:text-5xl lg:text-7xl xl:text-7xl font-bold text-shadow-lg/30" style="font-family: 'SNOWMAS', sans-serif;">Film Screenings in 7 Venues along the kilifi Creek!</h1>-->
         </div>
         <div class="grid place-items-center">
-            <!--<a href="#PROGRAM" class="inline-block bg-yellow-800/60 hover:bg-yellow-800/90 backdrop-blur-md rounded-sm text-white uppercase text-sm tracking-widest font-heading px-8 py-4">FESTIVAL PROGRAM</a>-->
+            <!--<a href="#PROGRAM" class="inline-block bg-yellow-800/60 hover:bg-yellow-800/90  rounded-sm text-white uppercase text-sm tracking-widest font-heading px-8 py-4">FESTIVAL PROGRAM</a>-->
         </div>
     </div>
     <!-- Partners and logos-->
@@ -176,43 +218,43 @@
                 class="flex flex-1 overflow-x-scroll no-scrollbar h-20 hover:animate-none relative flex-col gap-2 scroll-linear">
                 <ul class="px-4 flex gap-2 h-full">
                     <li class="h-full">
-                        <img src="./static/images/logo/afrofilms.png" class="min-w-52 shrink-0" alt="" />
+                        <img src="./static/images/logo/afrofilms.png" class="w-32 md:w-52 shrink-0 object-contain" alt="" />
                     </li>
                     <li class="h-full">
-                        <img src="./static/images/logo/baruu.png" class="min-w-52 shrink-0" alt="" />
-                    </li>
-
-                    <li class="h-full">
-                        <img src="./static/images/logo/terrace.png" class="min-w-52 shrink-0" alt="" />
-                    </li>
-                    <li class="h-full">
-                        <img src="./static/images/logo/tawi.png" class="min-w-52 shrink-0" alt="" />
-                    </li>
-                    <li class="h-full">
-                        <img src="./static/images/logo/afrofilms.png" class="min-w-52 shrink-0" alt="" />
-                    </li>
-                    <li class="h-full">
-                        <img src="./static/images/logo/baruu.png" class="min-w-52 shrink-0" alt="" />
+                        <img src="./static/images/logo/baruu.png" class="w-32 md:w-52 shrink-0 object-contain" alt="" />
                     </li>
 
                     <li class="h-full">
-                        <img src="./static/images/logo/terrace.png" class="min-w-52 shrink-0" alt="" />
+                        <img src="./static/images/logo/terrace.png" class="w-32 md:w-52 shrink-0 object-contain" alt="" />
                     </li>
                     <li class="h-full">
-                        <img src="./static/images/logo/tawi.png" class="min-w-52 shrink-0" alt="" />
+                        <img src="./static/images/logo/tawi.png" class="w-32 md:w-52 shrink-0 object-contain" alt="" />
                     </li>
                     <li class="h-full">
-                        <img src="./static/images/logo/afrofilms.png" class="min-w-52 shrink-0" alt="" />
+                        <img src="./static/images/logo/afrofilms.png" class="w-32 md:w-52 shrink-0 object-contain" alt="" />
                     </li>
                     <li class="h-full">
-                        <img src="./static/images/logo/baruu.png" class="min-w-52 shrink-0" alt="" />
+                        <img src="./static/images/logo/baruu.png" class="w-32 md:w-52 shrink-0 object-contain" alt="" />
                     </li>
 
                     <li class="h-full">
-                        <img src="./static/images/logo/terrace.png" class="min-w-52 shrink-0" alt="" />
+                        <img src="./static/images/logo/terrace.png" class="w-32 md:w-52 shrink-0 object-contain" alt="" />
                     </li>
                     <li class="h-full">
-                        <img src="./static/images/logo/tawi.png" class="min-w-52 shrink-0" alt="" />
+                        <img src="./static/images/logo/tawi.png" class="w-32 md:w-52 shrink-0 object-contain" alt="" />
+                    </li>
+                    <li class="h-full">
+                        <img src="./static/images/logo/afrofilms.png" class="w-32 md:w-52 shrink-0 object-contain" alt="" />
+                    </li>
+                    <li class="h-full">
+                        <img src="./static/images/logo/baruu.png" class="w-32 md:w-52 shrink-0 object-contain" alt="" />
+                    </li>
+
+                    <li class="h-full">
+                        <img src="./static/images/logo/terrace.png" class="w-32 md:w-52 shrink-0 object-contain" alt="" />
+                    </li>
+                    <li class="h-full">
+                        <img src="./static/images/logo/tawi.png" class="w-32 md:w-52 shrink-0 object-contain" alt="" />
                     </li>
                 </ul>
             </div>
@@ -277,7 +319,7 @@
             <a href="#"><img src="./image3.jpg.jpeg" class="w-full max-w-md rounded-lg shadow-lg"></a>
         </div>
         <div class="p-12 md:p-24 flex justify-start items-center text-white">
-            <div class="max-w-md">
+            <div class="max-w-md bg-black/50 border border-white/10 rounded-3xl shadow-2xl p-6 md:p-10">
                 <div class="w-24 h-2 bg-yellow-800 mb-6"></div>
                 <h2 class="font-display font-bold text-2xl md:text-3xl lg:text-4xl mb-6">A Symphony of Stories</h2>
                 <p class="font-light text-gray-200 text-sm md:text-base mb-8 leading-relaxed italic">
@@ -294,7 +336,7 @@
             </div>
         </div>
     </div>
-    <div class="relative w-screen bg-[url(./image4.jpg)] bg-cover bg-center bg-fixed text-center">
+    <div class="relative w-screen mt-12 md:mt-24 bg-[url(./image4.jpg)] bg-cover bg-center bg-fixed text-center">
         <div class="relative z-10 text-center py-24 md:py-24">
             <h1 class="text-white text-center text-3xl text-shadow-lg/30 md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-6"
                 style="font-family: 'Playtime With Hot Toddies', sans-serif;"> KCF THEME 2026</h1>
@@ -309,7 +351,7 @@
 
     <!-- FilmFreeway Submit Section -->
     <div class="text-white py-16 text-center px-6 border-y border-white/5">
-        <div class="max-w-2xl mx-auto">
+        <div class="max-w-2xl mx-auto bg-black/50 border border-white/10 rounded-3xl shadow-2xl p-6 md:p-10">
             <p class="text-yellow-300 uppercase tracking-widest text-sm font-semibold mb-3">Call for Entries</p>
             <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: 'Playtime With Hot Toddies', sans-serif;">Call for Entries</h2>
             <p class="text-yellow-100 text-base md:text-lg mb-8 font-light leading-relaxed">Filmmakers are invited to submit their work for KCF 2026 via this link:</p>
@@ -331,7 +373,7 @@
                         class="absolute left-[18px] top-14 h-[calc(100%_-_32px)] w-px bg-gray-600 lg:right-0 lg:left-auto lg:top-[18px] lg:h-px lg:w-[calc(100%_-_72px)]"
                         aria-hidden="true"></span>
                     <div
-                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-black/50 backdrop-blur-2xl text-yellow-500 font-bold transition-all duration-200 group-hover:border-yellow-500 group-hover:bg-yellow-900">
+                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-black/50 shadow-2xl border border-white/10 rounded-3xl text-yellow-500 font-bold transition-all duration-200 group-hover:border-yellow-500 group-hover:bg-yellow-900">
                         <a href="./events/kilifi-creek-2026.html" style="color: white !important;">23rd </a></div>
                     <div class="ml-6 lg:ml-0 lg:mt-10">
                         <h3
@@ -342,65 +384,7 @@
                     </div>
                     <!--<a href="./rsvp/rsvp-11.html"  class="mt-auto ml-auto w-1/2 text-sm  rounded-sm border-2 border-yellow-800 font-light text-yellow-800 uppercase tracking-widest py-2 justify-center text-center hover:bg-yellow-800 hover:text-white">RSVP</a>-->
 
-                        <!--modal  -->
-                        <div class="grid" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
-                            <!-- Trigger for Modal -->
-                            
-                            
-                            <!-- Modal -->
-                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal">
-                                <!-- Modal inner -->
-                                <div class="w-2xl px-6 py-4 mx-auto text-left bg-white rounded shadow-lg" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"  x-transition:enter-end="opacity-100 scale-100"
-                                >
-                                    <!-- Title / Close-->
-                                    <div class="flex items-center justify-between">
-                                        <button type="button" class="z-50 cursor-pointer" @click="showModal = false">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                            </svg>
-                                        </button>
-                                    </div>
-
-                                    <!-- content -->
-                                    <div class="container mx-auto p4-10">
-                                        <div class="max-w-md mx-auto bg-white rounded-lg overflow-hidden md:max-w-xl">
-                                            <div class="md:flex">
-                                                <div class="w-full px-6 py-8 md:p-8">
-                                                    <h2 class="text-2xl font-bold text-gray-800">RSVP</h2>
-                                                    <!--<p   class="mt-4 text-gray-600">Please fill out the form below to complete your reservation.</p>-->
-                                                    <form id="f_11"  x-data="ContactForm(11)"  @submit.prevent="submitForm"  class="mt-6">
-                                                        <div x-text="formMessage"></div>
-                                                        <div class="mb-6">
-                                                            <label class="block text-gray-800 font-bold mb-2" for="name">
-                                                                Name
-                                                            </label>
-                                                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="John Doe" x-model="formData.name" required minlength="3">
-                                                        </div>
-                                                        <div class="mb-6">
-                                                            <label class="block text-gray-800 font-bold mb-2" for="email">
-                                                                Email
-                                                            </label>
-                                                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="johndoe@example.com" x-model="formData.email" required>
-                                                        </div>
-                                                        <div class="mb-6">
-                                                            <label class="block text-gray-800 font-bold mb-2" for="phone">
-                                                                Mobile
-                                                            </label>
-                                                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="phone" type="tel" placeholder="072 943 7770" x-model="formData.phone" required minlength="10">
-                                                        </div>
-                                                        
-                                                        <button :disabled="formLoading" x-text="buttonText" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit"></button>
-                                                        <a href="https://www.mchanga.africa/fundraiser/123951" target="_blank" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 cursor-pointer rounded focus:outline-none focus:shadow-outline" type="button">Donate</a>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <!--end of modal-->
-                </li>
+                        </li>
                 <li class="flex-start group relative flex lg:flex-col">
                     <span
                         class="absolute left-[18px] top-14 h-[calc(100%_-_32px)] w-px bg-gray-600 lg:right-0 lg:left-auto lg:top-[18px] lg:h-px lg:w-[calc(100%_-_72px)]"
@@ -415,65 +399,7 @@
                         <h4 class="mt-2 text-base text-white text-sm"><a href="./events/kilifi-creek-2026.html" style="color: white !important;">Lets cruise along the coast while savoring
                             delicious Swahili snacks .</a></h4>
                     </div>
-                    <!--modal  -->
-                        <div class="grid" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
-                            <!-- Trigger for Modal -->
-                            
-                            
-                            <!-- Modal -->
-                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal">
-                                <!-- Modal inner -->
-                                <div class="w-2xl px-6 py-4 mx-auto text-left bg-white rounded shadow-lg" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"  x-transition:enter-end="opacity-100 scale-100"
-                                >
-                                    <!-- Title / Close-->
-                                    <div class="flex items-center justify-between">
-                                        <button type="button" class="z-50 cursor-pointer" @click="showModal = false">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                            </svg>
-                                        </button>
-                                    </div>
-
-                                    <!-- content -->
-                                    <div class="container mx-auto p4-10">
-                                        <div class="max-w-md mx-auto bg-white rounded-lg overflow-hidden md:max-w-xl">
-                                            <div class="md:flex">
-                                                <div class="w-full px-6 py-8 md:p-8">
-                                                    <h2 class="text-2xl font-bold text-gray-800">RSVP</h2>
-                                                    <!--<p   class="mt-4 text-gray-600">Please fill out the form below to complete your reservation.</p>-->
-                                                    <form id="f_12"  x-data="ContactForm(12)"  @submit.prevent="submitForm"  class="mt-6">
-                                                        <div x-text="formMessage"></div>
-                                                        <div class="mb-6">
-                                                            <label class="block text-gray-800 font-bold mb-2" for="name">
-                                                                Name
-                                                            </label>
-                                                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="John Doe" x-model="formData.name" required minlength="3">
-                                                        </div>
-                                                        <div class="mb-6">
-                                                            <label class="block text-gray-800 font-bold mb-2" for="email">
-                                                                Email
-                                                            </label>
-                                                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="johndoe@example.com" x-model="formData.email" required>
-                                                        </div>
-                                                        <div class="mb-6">
-                                                            <label class="block text-gray-800 font-bold mb-2" for="phone">
-                                                                Mobile
-                                                            </label>
-                                                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="phone" type="tel" placeholder="072 943 7780" x-model="formData.phone" required minlength="10">
-                                                        </div>
-                                                        
-                                                        <button :disabled="formLoading" x-text="buttonText" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit"></button>
-                                                        <a href="https://www.mchanga.africa/fundraiser/123951" target="_blank" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 cursor-pointer rounded focus:outline-none focus:shadow-outline" type="button">Donate</a>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <!--end of modal-->
-                </li>
+                    </li>
                 <li class="flex-start group relative flex lg:flex-col">
                     <span
                         class="absolute left-[18px] top-14 h-[calc(100%_-_32px)] w-px bg-gray-600 lg:right-0 lg:left-auto lg:top-[18px] lg:h-px lg:w-[calc(100%_-_72px)]"
@@ -489,65 +415,7 @@
                             Creek designed to foster artistic exploration,
                             collaboration, and community.</a></h4>
                     </div>
-                    <!--modal  -->
-                        <div class="grid" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
-                            <!-- Trigger for Modal -->
-                            
-                            
-                            <!-- Modal -->
-                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal">
-                                <!-- Modal inner -->
-                                <div class="w-2xl px-6 py-4 mx-auto text-left bg-white rounded shadow-lg" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"  x-transition:enter-end="opacity-100 scale-100"
-                                >
-                                    <!-- Title / Close-->
-                                    <div class="flex items-center justify-between">
-                                        <button type="button" class="z-50 cursor-pointer" @click="showModal = false">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                            </svg>
-                                        </button>
-                                    </div>
-
-                                    <!-- content -->
-                                    <div class="container mx-auto p4-10">
-                                        <div class="max-w-md mx-auto bg-white rounded-lg overflow-hidden md:max-w-xl">
-                                            <div class="md:flex">
-                                                <div class="w-full px-6 py-8 md:p-8">
-                                                    <h2 class="text-2xl font-bold text-gray-800">RSVP</h2>
-                                                    <!--<p   class="mt-4 text-gray-600">Please fill out the form below to complete your reservation.</p>-->
-                                                    <form id="f_13"  x-data="ContactForm(13)"  @submit.prevent="submitForm"  class="mt-6">
-                                                        <div x-text="formMessage"></div>
-                                                        <div class="mb-6">
-                                                            <label class="block text-gray-800 font-bold mb-2" for="name">
-                                                                Name
-                                                            </label>
-                                                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="John Doe" x-model="formData.name" required minlength="3">
-                                                        </div>
-                                                        <div class="mb-6">
-                                                            <label class="block text-gray-800 font-bold mb-2" for="email">
-                                                                Email
-                                                            </label>
-                                                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="johndoe@example.com" x-model="formData.email" required>
-                                                        </div>
-                                                        <div class="mb-6">
-                                                            <label class="block text-gray-800 font-bold mb-2" for="phone">
-                                                                Mobile
-                                                            </label>
-                                                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="phone" type="tel" placeholder="072 943 7780" x-model="formData.phone" required minlength="10">
-                                                        </div>
-                                                        
-                                                        <button :disabled="formLoading" x-text="buttonText" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit"></button>
-                                                        <a href="https://www.mchanga.africa/fundraiser/123951" target="_blank" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 cursor-pointer rounded focus:outline-none focus:shadow-outline" type="button">Donate</a>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <!--end of modal-->
-                </li>
+                    </li>
                 <li class="flex-start group relative flex lg:flex-col">
                     <span
                         class="absolute left-[18px] top-14 h-[calc(100%_-_32px)] w-px bg-gray-600 lg:right-0 lg:left-auto lg:top-[18px] lg:h-px lg:w-[calc(100%_-_72px)]"
@@ -563,65 +431,7 @@
                         <h4 class="mt-2 text-gray-300 text-sm"><a href="./events/kilifi-creek-2026.html" style="color: white !important;">We're literally putting artists, filmakers and screens on
                             a dhow and turning the ocean into the stage.</a></h4>
                     </div>
-                    <!--modal  -->
-                        <div class="grid" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
-                            <!-- Trigger for Modal -->
-                            
-                            
-                            <!-- Modal -->
-                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal">
-                                <!-- Modal inner -->
-                                <div class="w-2xl px-6 py-4 mx-auto text-left bg-white rounded shadow-lg" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"  x-transition:enter-end="opacity-100 scale-100"
-                                >
-                                    <!-- Title / Close-->
-                                    <div class="flex items-center justify-between">
-                                        <button type="button" class="z-50 cursor-pointer" @click="showModal = false">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                            </svg>
-                                        </button>
-                                    </div>
-
-                                    <!-- content -->
-                                    <div class="container mx-auto p4-10">
-                                        <div class="max-w-md mx-auto bg-white rounded-lg overflow-hidden md:max-w-xl">
-                                            <div class="md:flex">
-                                                <div class="w-full px-6 py-8 md:p-8">
-                                                    <h2 class="text-2xl font-bold text-gray-800">RSVP</h2>
-                                                    <!--<p   class="mt-4 text-gray-600">Please fill out the form below to complete your reservation.</p>-->
-                                                    <form id="f_14"  x-data="ContactForm(14)"  @submit.prevent="submitForm"  class="mt-6">
-                                                        <div x-text="formMessage"></div>
-                                                        <div class="mb-6">
-                                                            <label class="block text-gray-800 font-bold mb-2" for="name">
-                                                                Name
-                                                            </label>
-                                                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="John Doe" x-model="formData.name" required minlength="3">
-                                                        </div>
-                                                        <div class="mb-6">
-                                                            <label class="block text-gray-800 font-bold mb-2" for="email">
-                                                                Email
-                                                            </label>
-                                                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="johndoe@example.com" x-model="formData.email" required>
-                                                        </div>
-                                                        <div class="mb-6">
-                                                            <label class="block text-gray-800 font-bold mb-2" for="phone">
-                                                                Mobile
-                                                            </label>
-                                                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="phone" type="tel" placeholder="072 943 7780" x-model="formData.phone" required minlength="10">
-                                                        </div>
-                                                        
-                                                        <button :disabled="formLoading" x-text="buttonText" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit"></button>
-                                                        <a href="https://www.mchanga.africa/fundraiser/123951" target="_blank" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 cursor-pointer rounded focus:outline-none focus:shadow-outline" type="button">Donate</a>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <!--end of modal-->
-                </li>
+                    </li>
             </ul>
         </div>
 
@@ -641,65 +451,7 @@
                         <h4 class="mt-2 text-gray-300 text-sm"><a href="./events/kilifi-creek-2026.html" style="color: white !important;">A perfect Nestle between the peaceful Giriama village of
                             Fumbini and the emerald waters of Kilifi Lagoon.</a></h4>
                     </div>
-                    <!--modal  -->
-                        <div class="grid" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
-                            <!-- Trigger for Modal -->
-                            
-                            
-                            <!-- Modal -->
-                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal">
-                                <!-- Modal inner -->
-                                <div class="w-2xl px-6 py-4 mx-auto text-left bg-white rounded shadow-lg" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"  x-transition:enter-end="opacity-100 scale-100"
-                                >
-                                    <!-- Title / Close-->
-                                    <div class="flex items-center justify-between">
-                                        <button type="button" class="z-50 cursor-pointer" @click="showModal = false">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                            </svg>
-                                        </button>
-                                    </div>
-
-                                    <!-- content -->
-                                    <div class="container mx-auto p4-10">
-                                        <div class="max-w-md mx-auto bg-white rounded-lg overflow-hidden md:max-w-xl">
-                                            <div class="md:flex">
-                                                <div class="w-full px-6 py-8 md:p-8">
-                                                    <h2 class="text-2xl font-bold text-gray-800">RSVP</h2>
-                                                    <!--<p   class="mt-4 text-gray-600">Please fill out the form below to complete your reservation.</p>-->
-                                                    <form id="f_15"  x-data="ContactForm(15)"  @submit.prevent="submitForm"  class="mt-6">
-                                                        <div x-text="formMessage"></div>
-                                                        <div class="mb-6">
-                                                            <label class="block text-gray-800 font-bold mb-2" for="name">
-                                                                Name
-                                                            </label>
-                                                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="John Doe" x-model="formData.name" required minlength="3">
-                                                        </div>
-                                                        <div class="mb-6">
-                                                            <label class="block text-gray-800 font-bold mb-2" for="email">
-                                                                Email
-                                                            </label>
-                                                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="johndoe@example.com" x-model="formData.email" required>
-                                                        </div>
-                                                        <div class="mb-6">
-                                                            <label class="block text-gray-800 font-bold mb-2" for="phone">
-                                                                Mobile
-                                                            </label>
-                                                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="phone" type="tel" placeholder="072 943 7780" x-model="formData.phone" required minlength="10">
-                                                        </div>
-                                                        
-                                                        <button :disabled="formLoading" x-text="buttonText" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit"></button>
-                                                        <a href="https://www.mchanga.africa/fundraiser/123951" target="_blank" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 cursor-pointer rounded focus:outline-none focus:shadow-outline" type="button">Donate</a>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <!--end of modal-->
-                </li>
+                    </li>
                 <li class="flex-start group relative flex lg:flex-col">
                     <span
                         class="absolute left-[18px] top-14 h-[calc(100%_-_32px)] w-px bg-gray-600 lg:right-0 lg:left-auto lg:top-[18px] lg:h-px lg:w-[calc(100%_-_72px)]"
@@ -714,65 +466,7 @@
                         <h4 class="mt-2 text-gray-300 text-sm"><a href="./events/kilifi-creek-2026.html" style="color: white !important;">A creative hub nestled along the scenic Kilifi Creek,
                             designed for artistic exploration, collaboration, and community.</a></h4>
                     </div>
-                    <!--modal  -->
-                        <div class="grid" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
-                            <!-- Trigger for Modal -->
-                            
-                            
-                            <!-- Modal -->
-                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal">
-                                <!-- Modal inner -->
-                                <div class="w-2xl px-6 py-4 mx-auto text-left bg-white rounded shadow-lg" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"  x-transition:enter-end="opacity-100 scale-100"
-                                >
-                                    <!-- Title / Close-->
-                                    <div class="flex items-center justify-between">
-                                        <button type="button" class="z-50 cursor-pointer" @click="showModal = false">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                            </svg>
-                                        </button>
-                                    </div>
-
-                                    <!-- content -->
-                                    <div class="container mx-auto p4-10">
-                                        <div class="max-w-md mx-auto bg-white rounded-lg overflow-hidden md:max-w-xl">
-                                            <div class="md:flex">
-                                                <div class="w-full px-6 py-8 md:p-8">
-                                                    <h2 class="text-2xl font-bold text-gray-800">RSVP</h2>
-                                                    <!--<p   class="mt-4 text-gray-600">Please fill out the form below to complete your reservation.</p>-->
-                                                    <form id="f_16"  x-data="ContactForm(16)"  @submit.prevent="submitForm"  class="mt-6">
-                                                        <div x-text="formMessage"></div>
-                                                        <div class="mb-6">
-                                                            <label class="block text-gray-800 font-bold mb-2" for="name">
-                                                                Name
-                                                            </label>
-                                                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="John Doe" x-model="formData.name" required minlength="3">
-                                                        </div>
-                                                        <div class="mb-6">
-                                                            <label class="block text-gray-800 font-bold mb-2" for="email">
-                                                                Email
-                                                            </label>
-                                                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="johndoe@example.com" x-model="formData.email" required>
-                                                        </div>
-                                                        <div class="mb-6">
-                                                            <label class="block text-gray-800 font-bold mb-2" for="phone">
-                                                                Mobile
-                                                            </label>
-                                                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="phone" type="tel" placeholder="072 943 7780" x-model="formData.phone" required minlength="10">
-                                                        </div>
-                                                        
-                                                        <button :disabled="formLoading" x-text="buttonText" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit"></button>
-                                                        <a href="https://www.mchanga.africa/fundraiser/123951" target="_blank" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 cursor-pointer rounded focus:outline-none focus:shadow-outline" type="button">Donate</a>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <!--end of modal-->
-                </li>
+                    </li>
                 <li class="flex-start group relative flex lg:flex-col">
                     <span
                         class="absolute left-[18px] top-14 h-[calc(100%_-_32px)] w-px bg-gray-600 lg:right-0 lg:left-auto lg:top-[18px] lg:h-px lg:w-[calc(100%_-_72px)]"
@@ -788,65 +482,7 @@
                             Creek designed to foster artistic exploration,
                             collaboration, and community.</a></h4>
                     </div>
-                    <!--modal  -->
-                        <div class="grid" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
-                            <!-- Trigger for Modal -->
-                            
-                            
-                            <!-- Modal -->
-                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal">
-                                <!-- Modal inner -->
-                                <div class="w-2xl px-6 py-4 mx-auto text-left bg-white rounded shadow-lg" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"  x-transition:enter-end="opacity-100 scale-100"
-                                >
-                                    <!-- Title / Close-->
-                                    <div class="flex items-center justify-between">
-                                        <button type="button" class="z-50 cursor-pointer" @click="showModal = false">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                            </svg>
-                                        </button>
-                                    </div>
-
-                                    <!-- content -->
-                                    <div class="container mx-auto p4-10">
-                                        <div class="max-w-md mx-auto bg-white rounded-lg overflow-hidden md:max-w-xl">
-                                            <div class="md:flex">
-                                                <div class="w-full px-6 py-8 md:p-8">
-                                                    <h2 class="text-2xl font-bold text-gray-800">RSVP</h2>
-                                                    <!--<p   class="mt-4 text-gray-600">Please fill out the form below to complete your reservation.</p>-->
-                                                    <form id="f_17"  x-data="ContactForm(17)"  @submit.prevent="submitForm"  class="mt-6">
-                                                        <div x-text="formMessage"></div>
-                                                        <div class="mb-6">
-                                                            <label class="block text-gray-800 font-bold mb-2" for="name">
-                                                                Name
-                                                            </label>
-                                                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="John Doe" x-model="formData.name" required minlength="3">
-                                                        </div>
-                                                        <div class="mb-6">
-                                                            <label class="block text-gray-800 font-bold mb-2" for="email">
-                                                                Email
-                                                            </label>
-                                                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="johndoe@example.com" x-model="formData.email" required>
-                                                        </div>
-                                                        <div class="mb-6">
-                                                            <label class="block text-gray-800 font-bold mb-2" for="phone">
-                                                                Mobile
-                                                            </label>
-                                                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="phone" type="tel" placeholder="072 943 7780" x-model="formData.phone" required minlength="10">
-                                                        </div>
-                                                        
-                                                        <button :disabled="formLoading" x-text="buttonText" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit"></button>
-                                                        <a href="https://www.mchanga.africa/fundraiser/123951" target="_blank" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 cursor-pointer rounded focus:outline-none focus:shadow-outline" type="button">Donate</a>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <!--end of modal-->
-                </li>
+                    </li>
                 <li class="flex-start group relative flex lg:flex-col">
                     <span
                         class="absolute left-[18px] top-14 h-[calc(100%_-_32px)] w-px bg-gray-600 lg:right-0 lg:left-auto lg:top-[18px] lg:h-px lg:w-[calc(100%_-_72px)]"
@@ -866,7 +502,7 @@
                         class="absolute left-[18px] top-14 h-[calc(100%_-_32px)] w-px bg-gray-600 lg:right-0 lg:left-auto lg:top-[18px] lg:h-px lg:w-[calc(100%_-_72px)]"
                         aria-hidden="true"></span>
                     <div
-                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-black/50 backdrop-blur-2xl text-yellow-500 font-bold transition-all duration-200 group-hover:border-yellow-500 group-hover:bg-yellow-900"><a href="./events/kilifi-creek-2026.html" style="color: white !important;">31st</a>
+                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-black/50 shadow-2xl border border-white/10 rounded-3xl text-yellow-500 font-bold transition-all duration-200 group-hover:border-yellow-500 group-hover:bg-yellow-900"><a href="./events/kilifi-creek-2026.html" style="color: white !important;">31st</a>
                         
                     </div>
                     <div class="ml-6 lg:ml-0 lg:mt-10">
@@ -876,65 +512,7 @@
                         <h4 class="mt-2 text-sm text-gray-300">YORA Awards Night!</h4>
                         <h4 class="mt-2 text-sm text-gray-300">Bonus Screenings!</h4>
                     </div>
-                    <!--modal  -->
-                        <div class="grid" x-data="{ 'showModal': false }" @keydown.escape="showModal = false">
-                            <!-- Trigger for Modal -->
-                            
-                            
-                            <!-- Modal -->
-                            <div class="fixed inset-0 z-30 flex items-center justify-center overflow-auto bg-black bg-opacity-50" x-show="showModal">
-                                <!-- Modal inner -->
-                                <div class="w-2xl px-6 py-4 mx-auto text-left bg-white rounded shadow-lg" @click.away="showModal = false" x-transition:enter="motion-safe:ease-out duration-300" x-transition:enter-start="opacity-0 scale-90"  x-transition:enter-end="opacity-100 scale-100"
-                                >
-                                    <!-- Title / Close-->
-                                    <div class="flex items-center justify-between">
-                                        <button type="button" class="z-50 cursor-pointer" @click="showModal = false">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                            </svg>
-                                        </button>
-                                    </div>
-
-                                    <!-- content -->
-                                    <div class="container mx-auto p4-10">
-                                        <div class="max-w-md mx-auto bg-white rounded-lg overflow-hidden md:max-w-xl">
-                                            <div class="md:flex">
-                                                <div class="w-full px-6 py-8 md:p-8">
-                                                    <h2 class="text-2xl font-bold text-gray-800">RSVP</h2>
-                                                    <!--<p   class="mt-4 text-gray-600">Please fill out the form below to complete your reservation.</p>-->
-                                                    <form id="f_18"  x-data="ContactForm(18)"  @submit.prevent="submitForm"  class="mt-6">
-                                                        <div x-text="formMessage"></div>
-                                                        <div class="mb-6">
-                                                            <label class="block text-gray-800 font-bold mb-2" for="name">
-                                                                Name
-                                                            </label>
-                                                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="John Doe" x-model="formData.name" required minlength="3">
-                                                        </div>
-                                                        <div class="mb-6">
-                                                            <label class="block text-gray-800 font-bold mb-2" for="email">
-                                                                Email
-                                                            </label>
-                                                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="johndoe@example.com" x-model="formData.email" required>
-                                                        </div>
-                                                        <div class="mb-6">
-                                                            <label class="block text-gray-800 font-bold mb-2" for="phone">
-                                                                Mobile
-                                                            </label>
-                                                            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="phone" type="tel" placeholder="072 943 7780" x-model="formData.phone" required minlength="10">
-                                                        </div>
-                                                        
-                                                        <button :disabled="formLoading" x-text="buttonText" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit"></button>
-                                                        <a href="https://www.mchanga.africa/fundraiser/123951" target="_blank" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 cursor-pointer rounded focus:outline-none focus:shadow-outline" type="button">Donate</a>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <!--end of modal-->
-                </li>
+                    </li>
             </ul>
             <div class="text-center  pt-16">
                 <p class="text-sm">
@@ -946,9 +524,9 @@
         </div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 border-y border-white/5">
-        <div class="bg-black/50 p-12 md:p-24 flex justify-start items-center backdrop-blur-2xl border-r border-white/5"><a href="#"><img
+        <div class="bg-black/50 p-12 md:p-24 flex justify-start items-center  border-r border-white/5"><a href="#"><img
                     src="./image5.jpg" class="w-full max-w-md rounded-lg shadow-lg border border-white/10"></a></div>
-        <div class="md:order-first bg-black/50 p-12 md:p-24 flex justify-end items-center backdrop-blur-2xl">
+        <div class="md:order-first bg-black/50 p-12 md:p-24 flex justify-end items-center ">
             <div class="max-w-md">
                 <div class="w-24 h-2 bg-yellow-800 mb-4 shadow-lg"></div>
                 <h2 class="font-display font-bold text-2xl md:text-3xl lg:text-4xl mb-6 text-white" style="font-family: 'Playtime With Hot Toddies', sans-serif;">Festival Team</h2>
@@ -970,7 +548,7 @@
                 <div class="w-24 h-1 bg-yellow-600 mx-auto mt-6 rounded-full"></div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-[2.5rem] overflow-hidden bg-black/50 backdrop-blur-3xl border border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)]">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-[2.5rem] overflow-hidden bg-black/50 rounded-3xl border border-white/10 shadow-2xl border border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)]">
                 <!-- Address & Info -->
                 <div class="p-10 md:p-16 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/5">
                     <h3 class="text-3xl font-bold text-white mb-8" style="font-family: 'Playtime With Hot Toddies', sans-serif;">The Terrace Art Space</h3>
