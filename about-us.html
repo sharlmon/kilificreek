@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en" class="scroll-smooth">
 
 <head>
@@ -70,7 +70,9 @@
     <script>let prevScrollPos=window.pageYOffset;const navbar=document.getElementById("navbar");window.onscroll=function(){let e=window.pageYOffset;navbar.style.transform=prevScrollPos>e?"translateY(0)":"translateY(-100%)",prevScrollPos=e};const menuBtn=document.getElementById("menu-btn");const menuClose=document.getElementById("menu-close");const mobileMenu=document.getElementById("mobile-menu");function openMenu(){mobileMenu.classList.add("open");document.body.style.overflow="hidden"}function closeMenu(){mobileMenu.classList.remove("open");document.body.style.overflow=""}menuBtn.addEventListener("click",openMenu);menuClose.addEventListener("click",closeMenu);mobileMenu.querySelectorAll("a").forEach(a=>a.addEventListener("click",closeMenu));document.addEventListener("keydown",e=>{if(e.key==="Escape")closeMenu()});</script>
 
     <div class="relative w-screen h-80 bg-[url(https://i.postimg.cc/K81mtjLV/Majajani-Partyieee32.jpg)] bg-cover bg-center bg-fixed text-center grid place-items-center pt-16 grayscale-90">
-        <h1 class="text-gray-900 text-center text-5xl md:text-5xl lg:text-7xl xl:text-7xl font-bold " style="font-family: 'SNOWMAS', sans-serif;">About Us</h1>
+        <div class="bg-white/40 backdrop-blur-2xl px-12 py-6 rounded-3xl border border-white/20 shadow-2xl">
+            <h1 class="text-gray-900 text-center text-5xl md:text-5xl lg:text-7xl xl:text-7xl font-bold " style="font-family: 'SNOWMAS', sans-serif;">About Us</h1>
+        </div>
     </div>
 
     <!-- about us -->
@@ -78,7 +80,7 @@
         <div class="container mx-auto py-24 px-8 sm:px-12 lg:px-16 bg-white rounded-3xl shadow-xl transition-all duration-500">
             <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
                 <div class="max-w-xl">
-                    <h2 class="text-4xl font-bold text-white mb-8 text-center md:text-left" style="font-family: 'Playtime With Hot Toddies', sans-serif;">A Festival Rooted in Place</h2>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-8 text-center md:text-left" style="font-family: 'Playtime With Hot Toddies', sans-serif;">A Festival Rooted in Place</h2>
                     <p class="mt-4 text-gray-600 text-lg leading-relaxed">
                         Kilifi Creek Festival is more than an event — it’s a movement to decentralize the arts, bringing
                         creativity beyond city centers and into natural, community-rich environments. It champions the
@@ -96,7 +98,7 @@
     <!-- gallery -->
     <section class="body-font py-16" id="gallery">
         <div class="container mx-auto rounded-3xl p-8 border border-gray-100">
-            <div class="flex justify-center text-4xl font-bold text-white text-center py-10" style="font-family: 'Snowmas', serif;">
+            <div class="flex justify-center text-4xl font-bold text-gray-900 text-center py-10" style="font-family: 'Snowmas', serif;">
                 The Creek Vision in Frames
             </div>
 
