@@ -169,42 +169,58 @@
 
 <body class="antialiased min-h-screen bg-white text-gray-900" style="font-family: 'Times New Roman', Times, serif;">
     <!-- Selective Hero Blur Overlay (Top Clear) -->
-            <!-- Refined Slim Professional Navbar -->
-    <nav id="navbar" class="fixed w-full transition-all duration-500 transform-gpu z-50 bg-black/75 backdrop-blur-lg border-b border-white/5 h-12 flex items-center shadow-lg">
-        <div class="container mx-auto h-full px-4 md:px-12 lg:px-24 flex items-center">
-            
-            <!-- Left Side Links -->
-            <ul class="hidden md:flex flex-1 items-center justify-start gap-8 uppercase text-[10px] tracking-[0.25em] font-medium text-white/80">
-                <li><a href="index.html" class="hover:text-yellow-500 transition-colors duration-300">Home</a></li>
-                <li><a href="about-us.html" class="hover:text-yellow-500 transition-colors duration-300">About</a></li>
-                <li><a href="events.html" class="hover:text-yellow-500 transition-colors duration-300">Events</a></li>
-            </ul>
+                <!-- Enhanced Professional Header & Integrated Banner -->
+    <header class="fixed w-full transition-all duration-500 transform-gpu z-50 shadow-2xl">
+        <!-- Main Navbar Ribbon (Increased Size) -->
+        <nav id="navbar" class="w-full bg-black/95 backdrop-blur-2xl border-b border-white/5 h-20 flex items-center">
+            <div class="container mx-auto h-full px-4 md:px-12 lg:px-24 flex items-center">
+                
+                <!-- Left Side Links -->
+                <ul class="hidden md:flex flex-1 items-center justify-start gap-8 uppercase text-[11px] tracking-[0.3em] font-medium text-white/90">
+                    <li><a href="index.html" class="hover:text-yellow-500 transition-colors duration-300">Home</a></li>
+                    <li><a href="about-us.html" class="hover:text-yellow-500 transition-colors duration-300">About</a></li>
+                    <li><a href="events.html" class="hover:text-yellow-500 transition-colors duration-300">Events</a></li>
+                </ul>
 
-            <!-- Centered Flush Logo -->
-            <div class="flex items-center justify-center px-4">
-                <a href="index.html" class="block transition-transform duration-300 hover:scale-105">
-                    <img class="h-7 w-auto object-contain" src="./static/images/logo/logo.png" alt="Kilifi Creek Festival Logo" />
-                </a>
+                <!-- Centered Flush Logo (Integrated Perfectly) -->
+                <div class="flex items-center justify-center px-6">
+                    <a href="index.html" class="block transition-transform duration-300 hover:scale-110">
+                        <img class="h-12 md:h-14 w-auto object-contain" src="./static/images/logo/logo.png" alt="Kilifi Creek Festival Logo" />
+                    </a>
+                </div>
+
+                <!-- Right Side Links -->
+                <ul class="hidden md:flex flex-1 items-center justify-end gap-8 uppercase text-[11px] tracking-[0.3em] font-medium text-white/90">
+                    <li><a href="team.html" class="hover:text-yellow-500 transition-colors duration-300">Team</a></li>
+                    <li><a href="contact-us.html" class="hover:text-yellow-500 transition-colors duration-300">Contact</a></li>
+                    <li class="ml-4">
+                        <a href="https://filmfreeway.com/KilifiCreekFestival" target="_blank"
+                           class="inline-block px-5 py-2 border border-white/30 hover:bg-white hover:text-black rounded-full transition-all duration-300 text-[10px] font-bold tracking-widest uppercase">🎬 SUBMIT</a>
+                    </li>
+                </ul>
+
+                <!-- Mobile Toggle -->
+                <button id="menu-btn" class="md:hidden text-white/70 hover:text-white ml-auto transition-colors" aria-label="Open menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
+                    </svg>
+                </button>
             </div>
+        </nav>
 
-            <!-- Right Side Links -->
-            <ul class="hidden md:flex flex-1 items-center justify-end gap-8 uppercase text-[10px] tracking-[0.25em] font-medium text-white/80">
-                <li><a href="team.html" class="hover:text-yellow-500 transition-colors duration-300">Team</a></li>
-                <li><a href="contact-us.html" class="hover:text-yellow-500 transition-colors duration-300">Contact</a></li>
-                <li class="ml-2">
-                    <a href="https://filmfreeway.com/KilifiCreekFestival" target="_blank"
-                       class="inline-block px-4 py-1 border border-white/20 hover:border-yellow-600 hover:bg-yellow-600 hover:text-white rounded-full transition-all duration-300 text-[9px] font-bold">ðŸŽ¬ SUBMIT</a>
-                </li>
-            </ul>
-
-            <!-- Mobile Toggle -->
-            <button id="menu-btn" class="md:hidden text-white/60 hover:text-white ml-auto transition-colors" aria-label="Open menu">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9h16.5m-16.5 6.75h16.5" />
-                </svg>
-            </button>
+        <!-- Professional Branded Banner (Constructed from Source Texture) -->
+        <div class="w-full h-16 md:h-20 bg-[url('./home.jpg')] bg-cover bg-center border-t border-white/5 relative overflow-hidden">
+            <div class="absolute inset-0 bg-black/70 backdrop-blur-md"></div>
+            <div class="relative h-full flex flex-col items-center justify-center text-center px-4">
+                <p class="text-white text-[9px] md:text-[10px] uppercase tracking-[0.4em] font-bold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                    23rd - 31st Oct 2026 | Kilifi Creek, Kenya
+                </p>
+                <h2 class="text-white text-xs md:text-sm lg:text-base font-bold tracking-[0.1em] mt-1.5 uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                    Film Screenings in 7 Venues along the Kilifi Creek!
+                </h2>
+            </div>
         </div>
-    </nav>
+    </header>
 
     <!-- Full-Screen Mobile Menu Overlay -->
     <div id="mobile-menu" class="mobile-menu-overlay">
@@ -238,16 +254,11 @@
         document.addEventListener("keydown", e => { if (e.key === "Escape") closeMenu(); });
     </script>
 
-    <div class="relative w-screen h-screen bg-[url('./home.jpg')] bg-cover bg-center bg-fixed text-center grid grid-flow-row pt-16 items-center">
+    <div class="relative w-screen h-screen bg-[url('./home.jpg')] bg-cover bg-center bg-fixed text-center grid grid-flow-row pt-40 items-center">
         <!-- Contrast Gradient Overlay -->
         <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/20 pointer-events-none"></div>
 
-        <div class="relative z-10 md:mx-auto max-w-5xl px-4 py-12 rounded-3xl backdrop-blur-[10px] border border-white/10 bg-black/5 mx-4">
-            <p class="text-white text-right fluid-heading-secondary pt-2 pr-4 md:pr-24 mb-4"
-                style="font-family: 'Times New Roman', Times, serif;">23rd - 31st Oct 2026 | Kilifi Creek, Kenya</p>
-            <h1 class="text-white text-center fluid-heading-primary font-bold px-4"
-                style="font-family: 'Times New Roman', Times, serif;">Film Screenings in 7 Venues along the Kilifi Creek!</h1>
-        </div>
+        
         <div class="grid content-start">
             <!--<h1 class="text-gray-900 text-center text-5xl md:text-5xl lg:text-7xl xl:text-7xl font-bold " style="font-family: 'Times New Roman', Times, serif;">Film Screenings in 7 Venues along the kilifi Creek!</h1>-->
         </div>
@@ -476,7 +487,7 @@
                     </div>
                     </li>
             </ul>
-            <div class="text-center  pt-16">
+            <div class="text-center  pt-40">
                 <p class="text-sm">
                     **All screenings are free of charge, but we accept donations that would go towards developing our
                     community art space.
