@@ -116,7 +116,7 @@
     </style>
 </head>
 
-<body class="antialiased min-h-screen" style="font-family: 'Times New Roman', Times, serif; color: #ffffff; background-color: #000000; background-image: url('home.jpg'); background-repeat: no-repeat; background-position: center center; background-attachment: fixed; background-size: cover;">
+<body class="antialiased min-h-screen bg-white text-gray-900" style="font-family: 'Times New Roman', Times, serif;">
     <!-- Selective Hero Blur Overlay (Top Clear) -->
     <!-- Navbar -->
     <nav id="navbar" class="fixed w-full transition-transform duration-300 transform-gpu z-50 shadow-xl/30 bg-yellow-800/80 text-white">
@@ -187,29 +187,29 @@
         document.addEventListener("keydown", e => { if (e.key === "Escape") closeMenu(); });
     </script>
 
-    <div class="relative w-screen h-screen bg-transparent text-center grid grid-flow-row pt-16 items-center">
-        <div class="grid border border-white/10 py-12 px-6 bg-black/50 rounded-3xl mx-4 my-8 shadow-2xl md:mx-auto max-w-5xl backdrop-blur-[10px]">
-            <p class="text-white text-right fluid-heading-secondary text-shadow-lg pt-2 pr-4 md:pr-24 mb-4"
+    <div class="relative w-screen h-screen bg-[url('./home.jpg')] bg-cover bg-center bg-fixed text-center grid grid-flow-row pt-16 items-center">
+        <div class="grid border border-gray-100 py-12 px-6 bg-white rounded-3xl mx-4 my-8 shadow-2xl md:mx-auto max-w-5xl ">
+            <p class="text-gray-900 text-right fluid-heading-secondary  pt-2 pr-4 md:pr-24 mb-4"
                 style="font-family: 'Playtime With Hot Toddies', sans-serif;">23rd - 31st Oct 2026 | Kilifi Creek, Kenya</p>
-            <h1 class="text-white text-center fluid-heading-primary font-bold text-shadow-2xl px-4"
+            <h1 class="text-gray-900 text-center fluid-heading-primary font-bold  px-4"
                 style="font-family: 'SNOWMAS', sans-serif;">Film Screenings in 7 Venues along the Kilifi Creek!</h1>
         </div>
         <div class="grid content-start">
-            <!--<h1 class="text-white text-center text-5xl md:text-5xl lg:text-7xl xl:text-7xl font-bold text-shadow-lg/30" style="font-family: 'SNOWMAS', sans-serif;">Film Screenings in 7 Venues along the kilifi Creek!</h1>-->
+            <!--<h1 class="text-gray-900 text-center text-5xl md:text-5xl lg:text-7xl xl:text-7xl font-bold " style="font-family: 'SNOWMAS', sans-serif;">Film Screenings in 7 Venues along the kilifi Creek!</h1>-->
         </div>
         <div class="grid place-items-center">
             <!--<a href="#PROGRAM" class="inline-block bg-yellow-800/60 hover:bg-yellow-800/90  rounded-sm text-white uppercase text-sm tracking-widest font-heading px-8 py-4">FESTIVAL PROGRAM</a>-->
         </div>
     </div>
     <!-- Partners and logos-->
-    <section class="flex flex-col gap-10 py-16 z-10 border-y border-white/5">
+    <section class="flex flex-col gap-10 py-16 z-10 border-y border-gray-100">
         <div class="flex gap-4 flex-col px-4 h-full relative  md:w-[85%] w-[95%] mx-auto">
             <div class="flex items-center gap-4">
                 <div class="p-6 rounded-sm border-l-4 border-yellow-800">
-                    <h2 class="font-poppins text-[28px] shrink-0 font-bold text-white mb-2">
+                    <h2 class="font-poppins text-[28px] shrink-0 font-bold text-gray-900 mb-2">
                         Our Community of Creators
                     </h2>
-                    <p class="text-yellow-100 text-sm tracking-widest uppercase font-light">
+                    <p class="text-yellow-800 text-sm tracking-widest uppercase font-bold">
                         Empowering the voices that shape our global culture.
                     </p>
                 </div>
@@ -316,17 +316,17 @@
     <!--Partners and logos-->
 
     <div class="grid grid-cols-1 md:grid-cols-2">
-        <div class="p-12 md:p-24 flex justify-end items-center border-r border-white/5">
+        <div class="p-12 md:p-24 flex justify-end items-center border-r border-gray-100">
             <a href="#"><img src="./image3.jpg.jpeg" class="w-full max-w-md rounded-lg shadow-lg"></a>
         </div>
-        <div class="p-12 md:p-24 flex justify-start items-center text-white">
-            <div class="max-w-md bg-black/50 border border-white/10 rounded-3xl shadow-2xl p-6 md:p-10">
+        <div class="p-12 md:p-24 flex justify-start items-center text-gray-900">
+            <div class="max-w-md bg-white text-gray-900 shadow-2xl rounded-3xl shadow-2xl p-6 md:p-10">
                 <div class="w-24 h-2 bg-yellow-800 mb-6"></div>
                 <h2 class="font-display font-bold text-2xl md:text-3xl lg:text-4xl mb-6">A Symphony of Stories</h2>
-                <p class="font-light text-gray-200 text-sm md:text-base mb-8 leading-relaxed italic">
+                <p class="font-light text-gray-600 text-sm md:text-base mb-8 leading-relaxed italic">
                     "Where the tide meets the lens, and stories flow like the creek."
                 </p>
-                <p class="font-light text-gray-100 text-sm md:text-base mb-6 leading-relaxed">
+                <p class="font-light text-gray-700 text-sm md:text-base mb-6 leading-relaxed">
                     Rising from the rhythmic heartbeat of Africa, we return to the shores of Kilifi. 
                     In 2026, we celebrate the winding waters as memory, movement, and magic—crafting 
                     a legacy where every frame is a rebirth and every story a home.
@@ -338,21 +338,22 @@
         </div>
     </div>
     <div class="relative w-screen mt-24 md:mt-32 mb-16 bg-[url(./image4.jpg)] bg-cover bg-center bg-fixed text-center">
-        <div class="relative z-10 text-center py-24 md:py-24">
-            <h1 class="text-white text-center text-3xl text-shadow-lg/30 md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-6"
+        <div class="relative z-10 text-center py-24 md:py-24"><div class="bg-white max-w-4xl mx-auto rounded-3xl p-12 shadow-2xl">
+            <h1 class="text-gray-900 text-center text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-display font-bold mb-6"
                 style="font-family: 'Playtime With Hot Toddies', sans-serif;"> KCF THEME 2026</h1>
             <div class="w-36 h-1 bg-white shadow-xl/30 mb-4 mx-auto"></div>
-            <h2 class="font-display font-bold text-white text-shadow-md/20 text-3xl md:text-5xl lg:text-5xl mb-6 uppercase"
+            <h2 class="font-display font-bold text-white  text-3xl md:text-5xl lg:text-5xl mb-6 uppercase"
                 style="font-family: 'SNOWMAS', sans-serif;">‘Water is Memory, Movement, and Magic’</h2>
-            <h2 class="font-display font-bold text-white text-shadow-md/20 text-3xl md:text-5xl lg:text-5xl mb-6"
+            <h2 class="font-display font-bold text-gray-900 text-3xl md:text-5xl lg:text-5xl mb-6"
                 style="font-family: 'SNOWMAS', sans-serif;">With the tide’s gentle flow, we celebrate the power of art
                 <br>to Revive, Reconnect, and Regenerate.</h2>
+            </div>
         </div>
     </div>
 
     <!-- FilmFreeway Submit Section -->
-    <div class="text-white py-16 text-center px-6 border-y border-white/5">
-        <div class="max-w-2xl mx-auto bg-black/50 border border-white/10 rounded-3xl shadow-2xl p-6 md:p-10">
+    <div class="text-white py-16 text-center px-6 border-y border-gray-100">
+        <div class="max-w-2xl mx-auto bg-white text-gray-900 shadow-2xl rounded-3xl shadow-2xl p-6 md:p-10">
             <p class="text-yellow-300 uppercase tracking-widest text-sm font-semibold mb-3">Call for Entries</p>
             <h2 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: 'Playtime With Hot Toddies', sans-serif;">Call for Entries</h2>
             <p class="text-yellow-100 text-base md:text-lg mb-8 font-light leading-relaxed">Filmmakers are invited to submit their work for KCF 2026 via this link:</p>
@@ -366,21 +367,19 @@
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-24 md:pb-2">
             <div class="text-center">
                 <!--<p class="text-sm font-bold uppercase tracking-widest text-gray-700">How It Works</p>-->
-                <h2 class="mt-6 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl"><a href="./events/kilifi-creek-2026.html" style="color: white !important;">Last year's program: KCF 2025</a></h2>
+                <h2 class="mt-6 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl"><a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">Last year's program: KCF 2025</a></h2>
             </div>
-            <ul class="mx-auto mt-12 grid max-w-md grid-cols-1 gap-10 sm:mt-16 lg:mt-20 lg:max-w-5xl lg:grid-cols-4 text-white">
+            <ul class="mx-auto mt-12 grid max-w-md grid-cols-1 gap-10 sm:mt-16 lg:mt-20 lg:max-w-5xl lg:grid-cols-4 text-gray-900">
                 <li class="flex-start group relative flex lg:flex-col">
                     <span
                         class="absolute left-[18px] top-14 h-[calc(100%_-_32px)] w-px bg-gray-600 lg:right-0 lg:left-auto lg:top-[18px] lg:h-px lg:w-[calc(100%_-_72px)]"
                         aria-hidden="true"></span>
                     <div
-                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-black/50 shadow-2xl border border-white/10 rounded-3xl text-yellow-500 font-bold transition-all duration-200 group-hover:border-yellow-500 group-hover:bg-yellow-900">
-                        <a href="./events/kilifi-creek-2026.html" style="color: white !important;">23rd </a></div>
-                    <div class="ml-6 lg:ml-0 lg:mt-10">
-                        <h3
-                            class="text-xl font-bold text-white before:mb-2 before:block before:font-mono before:text-sm before:text-gray-400">
-                            <a href="./events/kilifi-creek-2026.html" style="color: white !important;">Saltys on the Creek</a></h3>
-                        <h4 class="mt-2 text-sm text-gray-300"><a href="./events/kilifi-creek-2026.html" style="color: white !important;">The perfect blend of fantastic food and delicious
+                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-gray-100 bg-white shadow-2xl border border-gray-100 rounded-3xl text-yellow-500 font-bold transition-all duration-200 group-hover:border-yellow-500 group-hover:bg-yellow-900">
+                        <a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">23rd </a></div>
+                    <div class="ml-6 lg:ml-0 lg:mt-10"><h3 class="text-xl font-bold text-gray-900 before:mb-2 before:block before:font-mono before:text-sm before:text-gray-500">
+                            <a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">Saltys on the Creek</a></h3>
+                        <h4 class="mt-2 text-sm text-gray-600"><a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">The perfect blend of fantastic food and delicious
                             cocktails, while floating on Kilifi's beautiful waters.</a></h4>
                     </div>
                     <!--<a href="./rsvp/rsvp-11.html"  class="mt-auto ml-auto w-1/2 text-sm  rounded-sm border-2 border-yellow-800 font-light text-yellow-800 uppercase tracking-widest py-2 justify-center text-center hover:bg-yellow-800 hover:text-white">RSVP</a>-->
@@ -391,13 +390,11 @@
                         class="absolute left-[18px] top-14 h-[calc(100%_-_32px)] w-px bg-gray-600 lg:right-0 lg:left-auto lg:top-[18px] lg:h-px lg:w-[calc(100%_-_72px)]"
                         aria-hidden="true"></span>
                     <div
-                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-gray-600 bg-black/40 text-yellow-500 font-bold transition-all duration-200 group-hover:border-yellow-500 group-hover:bg-yellow-900"><a href="./events/kilifi-creek-2026.html" style="color: white !important;">24th</a>
+                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-gray-600 bg-white text-gray-900 shadow-md border border-gray-100 text-yellow-500 font-bold transition-all duration-200 group-hover:border-yellow-500 group-hover:bg-yellow-900"><a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">24th</a>
                         </div>
-                    <div class="ml-6 lg:ml-0 lg:mt-10">
-                        <h3
-                            class="text-xl font-bold text-white before:mb-2 before:block before:font-mono before:text-sm before:text-gray-400">
-                            <a href="./events/kilifi-creek-2026.html" style="color: white !important;">Old Ferry</a></h3>
-                        <h4 class="mt-2 text-base text-white text-sm"><a href="./events/kilifi-creek-2026.html" style="color: white !important;">Lets cruise along the coast while savoring
+                    <div class="ml-6 lg:ml-0 lg:mt-10"><h3 class="text-xl font-bold text-gray-900 before:mb-2 before:block before:font-mono before:text-sm before:text-gray-500">
+                            <a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">Old Ferry</a></h3>
+                        <h4 class="mt-2 text-base text-white text-sm"><a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">Lets cruise along the coast while savoring
                             delicious Swahili snacks .</a></h4>
                     </div>
                     </li>
@@ -406,13 +403,11 @@
                         class="absolute left-[18px] top-14 h-[calc(100%_-_32px)] w-px bg-gray-600 lg:right-0 lg:left-auto lg:top-[18px] lg:h-px lg:w-[calc(100%_-_72px)]"
                         aria-hidden="true"></span>
                     <div
-                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-gray-600 bg-black/40 text-yellow-500 font-bold transition-all duration-200 group-hover:border-yellow-500 group-hover:bg-yellow-900"><a href="./events/kilifi-creek-2026.html" style="color: white !important;">25th</a>
+                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-gray-600 bg-white text-gray-900 shadow-md border border-gray-100 text-yellow-500 font-bold transition-all duration-200 group-hover:border-yellow-500 group-hover:bg-yellow-900"><a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">25th</a>
                 </div>
-                    <div class="ml-6 lg:ml-0 lg:mt-10">
-                        <h3
-                            class="text-xl font-bold text-white before:mb-2 before:block before:font-mono before:text-sm before:text-gray-400">
-                            <a href="./events/kilifi-creek-2026.html" style="color: white !important;">The Terrace Art Space</a></h3>
-                        <h4 class="mt-2 text-gray-300 text-sm"><a href="./events/kilifi-creek-2026.html" style="color: white !important;">The Terrace Art Space is a vibrant creative hub on Kilifi
+                    <div class="ml-6 lg:ml-0 lg:mt-10"><h3 class="text-xl font-bold text-gray-900 before:mb-2 before:block before:font-mono before:text-sm before:text-gray-500">
+                            <a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">The Terrace Art Space</a></h3>
+                        <h4 class="mt-2 text-gray-600 text-sm"><a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">The Terrace Art Space is a vibrant creative hub on Kilifi
                             Creek designed to foster artistic exploration,
                             collaboration, and community.</a></h4>
                     </div>
@@ -422,14 +417,12 @@
                         class="absolute left-[18px] top-14 h-[calc(100%_-_32px)] w-px bg-gray-600 lg:right-0 lg:left-auto lg:top-[18px] lg:h-px lg:w-[calc(100%_-_72px)]"
                         aria-hidden="true"></span>
                     <div
-                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-gray-600 bg-black/40 text-yellow-500 font-bold transition-all duration-200 group-hover:border-yellow-500 group-hover:bg-yellow-900"><a href="./events/kilifi-creek-2026.html" style="color: white !important;">26th</a>
+                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-gray-600 bg-white text-gray-900 shadow-md border border-gray-100 text-yellow-500 font-bold transition-all duration-200 group-hover:border-yellow-500 group-hover:bg-yellow-900"><a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">26th</a>
                         
                     </div>
-                    <div class="ml-6 lg:ml-0 lg:mt-10">
-                        <h3
-                            class="text-xl font-bold text-white before:mb-2 before:block before:font-mono before:text-sm before:text-gray-400">
-                            <a href="./events/kilifi-creek-2026.html" style="color: white !important;">Mekatililti Dhow & <br> Kilifi Club</a></h3>
-                        <h4 class="mt-2 text-gray-300 text-sm"><a href="./events/kilifi-creek-2026.html" style="color: white !important;">We're literally putting artists, filmakers and screens on
+                    <div class="ml-6 lg:ml-0 lg:mt-10"><h3 class="text-xl font-bold text-gray-900 before:mb-2 before:block before:font-mono before:text-sm before:text-gray-500">
+                            <a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">Mekatililti Dhow & <br> Kilifi Club</a></h3>
+                        <h4 class="mt-2 text-gray-600 text-sm"><a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">We're literally putting artists, filmakers and screens on
                             a dhow and turning the ocean into the stage.</a></h4>
                     </div>
                     </li>
@@ -443,13 +436,11 @@
                         class="absolute left-[18px] top-14 h-[calc(100%_-_32px)] w-px bg-gray-600 lg:right-0 lg:left-auto lg:top-[18px] lg:h-px lg:w-[calc(100%_-_72px)]"
                         aria-hidden="true"></span>
                     <div
-                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-gray-600 bg-black/40 text-yellow-500 font-bold transition-all duration-200 group-hover:border-yellow-500 group-hover:bg-yellow-900"><a href="./events/kilifi-creek-2026.html" style="color: white !important;">27th</a>
+                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-gray-600 bg-white text-gray-900 shadow-md border border-gray-100 text-yellow-500 font-bold transition-all duration-200 group-hover:border-yellow-500 group-hover:bg-yellow-900"><a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">27th</a>
                          </div>
-                    <div class="ml-6 lg:ml-0 lg:mt-10">
-                        <h3
-                            class="text-xl font-bold text-white before:mb-2 before:block before:font-mono before:text-sm before:text-gray-400">
-                            <a href="./events/kilifi-creek-2026.html" style="color: white !important;">Distant Relatives</a></h3>
-                        <h4 class="mt-2 text-gray-300 text-sm"><a href="./events/kilifi-creek-2026.html" style="color: white !important;">A perfect Nestle between the peaceful Giriama village of
+                    <div class="ml-6 lg:ml-0 lg:mt-10"><h3 class="text-xl font-bold text-gray-900 before:mb-2 before:block before:font-mono before:text-sm before:text-gray-500">
+                            <a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">Distant Relatives</a></h3>
+                        <h4 class="mt-2 text-gray-600 text-sm"><a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">A perfect Nestle between the peaceful Giriama village of
                             Fumbini and the emerald waters of Kilifi Lagoon.</a></h4>
                     </div>
                     </li>
@@ -458,13 +449,11 @@
                         class="absolute left-[18px] top-14 h-[calc(100%_-_32px)] w-px bg-gray-600 lg:right-0 lg:left-auto lg:top-[18px] lg:h-px lg:w-[calc(100%_-_72px)]"
                         aria-hidden="true"></span>
                     <div
-                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-gray-600 bg-black/40 text-yellow-500 font-bold transition-all duration-200 group-hover:border-yellow-500 group-hover:bg-yellow-900"><a href="./events/kilifi-creek-2026.html" style="color: white !important;">28th</a>
+                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-gray-600 bg-white text-gray-900 shadow-md border border-gray-100 text-yellow-500 font-bold transition-all duration-200 group-hover:border-yellow-500 group-hover:bg-yellow-900"><a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">28th</a>
                         </div>
-                    <div class="ml-6 lg:ml-0 lg:mt-10">
-                        <h3
-                            class="text-xl font-bold text-white before:mb-2 before:block before:font-mono before:text-sm before:text-gray-400">
-                            <a href="./events/kilifi-creek-2026.html" style="color: white !important;">The Terrace Art Space & Residency</a></h3>
-                        <h4 class="mt-2 text-gray-300 text-sm"><a href="./events/kilifi-creek-2026.html" style="color: white !important;">A creative hub nestled along the scenic Kilifi Creek,
+                    <div class="ml-6 lg:ml-0 lg:mt-10"><h3 class="text-xl font-bold text-gray-900 before:mb-2 before:block before:font-mono before:text-sm before:text-gray-500">
+                            <a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">The Terrace Art Space & Residency</a></h3>
+                        <h4 class="mt-2 text-gray-600 text-sm"><a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">A creative hub nestled along the scenic Kilifi Creek,
                             designed for artistic exploration, collaboration, and community.</a></h4>
                     </div>
                     </li>
@@ -473,13 +462,11 @@
                         class="absolute left-[18px] top-14 h-[calc(100%_-_32px)] w-px bg-gray-600 lg:right-0 lg:left-auto lg:top-[18px] lg:h-px lg:w-[calc(100%_-_72px)]"
                         aria-hidden="true"></span>
                     <div
-                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-gray-600 bg-black/40 text-yellow-500 font-bold transition-all duration-200 group-hover:border-yellow-500 group-hover:bg-yellow-900"><a href="./events/kilifi-creek-2026.html" style="color: white !important;">29th</a>
+                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-gray-600 bg-white text-gray-900 shadow-md border border-gray-100 text-yellow-500 font-bold transition-all duration-200 group-hover:border-yellow-500 group-hover:bg-yellow-900"><a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">29th</a>
                         </div>
-                    <div class="ml-6 lg:ml-0 lg:mt-10">
-                        <h3
-                            class="text-xl font-bold text-white before:mb-2 before:block before:font-mono before:text-sm before:text-gray-400">
-                            <a href="./events/kilifi-creek-2026.html" style="color: white !important;">The Terrace Art Space</a></h3>
-                        <h4 class="mt-2 text-gray-300 text-sm"><a href="./events/kilifi-creek-2026.html" style="color: white !important;">The Terrace Art Space is a vibrant creative hub on Kilifi
+                    <div class="ml-6 lg:ml-0 lg:mt-10"><h3 class="text-xl font-bold text-gray-900 before:mb-2 before:block before:font-mono before:text-sm before:text-gray-500">
+                            <a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">The Terrace Art Space</a></h3>
+                        <h4 class="mt-2 text-gray-600 text-sm"><a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">The Terrace Art Space is a vibrant creative hub on Kilifi
                             Creek designed to foster artistic exploration,
                             collaboration, and community.</a></h4>
                     </div>
@@ -489,13 +476,11 @@
                         class="absolute left-[18px] top-14 h-[calc(100%_-_32px)] w-px bg-gray-600 lg:right-0 lg:left-auto lg:top-[18px] lg:h-px lg:w-[calc(100%_-_72px)]"
                         aria-hidden="true"></span>
                     <div
-                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-gray-600 bg-black/40 text-yellow-500 font-bold transition-all duration-200 group-hover:border-yellow-500 group-hover:bg-yellow-900"><a href="./events/kilifi-creek-2026.html" style="color: white !important;">30th</a>
+                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-gray-600 bg-white text-gray-900 shadow-md border border-gray-100 text-yellow-500 font-bold transition-all duration-200 group-hover:border-yellow-500 group-hover:bg-yellow-900"><a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">30th</a>
                         </div>
-                    <div class="ml-6 lg:ml-0 lg:mt-10">
-                        <h3
-                            class="text-xl font-bold text-white before:mb-2 before:block before:font-mono before:text-sm before:text-gray-400">
-                            <a href="./events/kilifi-creek-2026.html" style="color: white !important;">TBA</a></h3>
-                        <h4 class="mt-2 text-gray-300 text-sm">More details coming soon!</h4>
+                    <div class="ml-6 lg:ml-0 lg:mt-10"><h3 class="text-xl font-bold text-gray-900 before:mb-2 before:block before:font-mono before:text-sm before:text-gray-500">
+                            <a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">TBA</a></h3>
+                        <h4 class="mt-2 text-gray-600 text-sm">More details coming soon!</h4>
                     </div>
                 </li>
                 <li class="flex-start group relative flex lg:flex-col">
@@ -503,15 +488,13 @@
                         class="absolute left-[18px] top-14 h-[calc(100%_-_32px)] w-px bg-gray-600 lg:right-0 lg:left-auto lg:top-[18px] lg:h-px lg:w-[calc(100%_-_72px)]"
                         aria-hidden="true"></span>
                     <div
-                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-black/50 shadow-2xl border border-white/10 rounded-3xl text-yellow-500 font-bold transition-all duration-200 group-hover:border-yellow-500 group-hover:bg-yellow-900"><a href="./events/kilifi-creek-2026.html" style="color: white !important;">31st</a>
+                        class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-gray-100 bg-white shadow-2xl border border-gray-100 rounded-3xl text-yellow-500 font-bold transition-all duration-200 group-hover:border-yellow-500 group-hover:bg-yellow-900"><a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">31st</a>
                         
                     </div>
-                    <div class="ml-6 lg:ml-0 lg:mt-10">
-                        <h3
-                            class="text-xl font-bold text-white before:mb-2 before:block before:font-mono before:text-sm before:text-gray-400">
-                            <a href="./events/kilifi-creek-2026.html" style="color: white !important;">Vipingo Ridge</a></h3>
-                        <h4 class="mt-2 text-sm text-gray-300">YORA Awards Night!</h4>
-                        <h4 class="mt-2 text-sm text-gray-300">Bonus Screenings!</h4>
+                    <div class="ml-6 lg:ml-0 lg:mt-10"><h3 class="text-xl font-bold text-gray-900 before:mb-2 before:block before:font-mono before:text-sm before:text-gray-500">
+                            <a href="./events/kilifi-creek-2026.html" style="color: #1a1a1a !important;">Vipingo Ridge</a></h3>
+                        <h4 class="mt-2 text-sm text-gray-600">YORA Awards Night!</h4>
+                        <h4 class="mt-2 text-sm text-gray-600">Bonus Screenings!</h4>
                     </div>
                     </li>
             </ul>
@@ -524,14 +507,14 @@
             </div>
         </div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 border-y border-white/5">
-        <div class="bg-black/50 p-12 md:p-24 flex justify-start items-center  border-r border-white/5"><a href="#"><img
-                    src="./image5.jpg" class="w-full max-w-md rounded-lg shadow-lg border border-white/10"></a></div>
-        <div class="md:order-first bg-black/50 p-12 md:p-24 flex justify-end items-center ">
+    <div class="grid grid-cols-1 md:grid-cols-2 border-y border-gray-100">
+        <div class="bg-white p-12 md:p-24 flex justify-start items-center  border-r border-gray-100"><a href="#"><img
+                    src="./image5.jpg" class="w-full max-w-md rounded-lg shadow-lg border border-gray-100"></a></div>
+        <div class="md:order-first bg-white p-12 md:p-24 flex justify-end items-center ">
             <div class="max-w-md">
                 <div class="w-24 h-2 bg-yellow-800 mb-4 shadow-lg"></div>
                 <h2 class="font-display font-bold text-2xl md:text-3xl lg:text-4xl mb-6 text-white" style="font-family: 'Playtime With Hot Toddies', sans-serif;">Festival Team</h2>
-                <p class="font-light text-gray-200 text-sm md:text-base mb-6 leading-relaxed">The festival brings together global film leaders and local creatives, led by
+                <p class="font-light text-gray-600 text-sm md:text-base mb-6 leading-relaxed">The festival brings together global film leaders and local creatives, led by
                     renowned Kenyan filmmakers Zippy Kimundu (Afrofilms International), Saitabao Kaiyare and Mumo Liku
                     (Baruu collective) and acclaimed author and activist Kevin Mwachiro as Festival Director.</p>
                 <a href="team.html"
@@ -549,11 +532,11 @@
                 <div class="w-24 h-1 bg-yellow-600 mx-auto mt-6 rounded-full"></div>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-[2.5rem] overflow-hidden bg-black/50 rounded-3xl border border-white/10 shadow-2xl border border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)]">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-[2.5rem] overflow-hidden bg-white rounded-3xl border border-gray-100 shadow-2xl border border-gray-100 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)]">
                 <!-- Address & Info -->
-                <div class="p-10 md:p-16 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-white/5">
+                <div class="p-10 md:p-16 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-gray-100">
                     <h3 class="text-3xl font-bold text-white mb-8" style="font-family: 'Playtime With Hot Toddies', sans-serif;">The Terrace Art Space</h3>
-                    <p class="text-gray-300 text-lg mb-10 leading-relaxed font-light">
+                    <p class="text-gray-600 text-lg mb-10 leading-relaxed font-light">
                         An innovative venue on the shores of the creek, serving as the creative heart of the festival. Join us for screenings, workshops, and sunset conversations.
                     </p>
                     

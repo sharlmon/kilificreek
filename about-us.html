@@ -26,7 +26,7 @@
     </style>
 </head>
 
-<body class="antialiased min-h-screen" style="font-family: 'Times New Roman', Times, serif; color: #ffffff; background-color: #000000; background-image: url('home.jpg'); background-repeat: no-repeat; background-position: center center; background-attachment: fixed; background-size: cover;">
+<body class="antialiased min-h-screen bg-white text-gray-900" style="font-family: 'Times New Roman', Times, serif;">
     <!-- Global Background Blur Overlay (Restored Visibility) -->
     <!-- Navbar -->
     <nav id="navbar" class="fixed w-full transition-transform duration-300 transform-gpu z-50 shadow-xl/30 bg-yellow-800/80 text-white">
@@ -70,16 +70,16 @@
     <script>let prevScrollPos=window.pageYOffset;const navbar=document.getElementById("navbar");window.onscroll=function(){let e=window.pageYOffset;navbar.style.transform=prevScrollPos>e?"translateY(0)":"translateY(-100%)",prevScrollPos=e};const menuBtn=document.getElementById("menu-btn");const menuClose=document.getElementById("menu-close");const mobileMenu=document.getElementById("mobile-menu");function openMenu(){mobileMenu.classList.add("open");document.body.style.overflow="hidden"}function closeMenu(){mobileMenu.classList.remove("open");document.body.style.overflow=""}menuBtn.addEventListener("click",openMenu);menuClose.addEventListener("click",closeMenu);mobileMenu.querySelectorAll("a").forEach(a=>a.addEventListener("click",closeMenu));document.addEventListener("keydown",e=>{if(e.key==="Escape")closeMenu()});</script>
 
     <div class="relative w-screen h-80 bg-[url(https://i.postimg.cc/K81mtjLV/Majajani-Partyieee32.jpg)] bg-cover bg-center bg-fixed text-center grid place-items-center pt-16 grayscale-90">
-        <h1 class="text-white text-center text-5xl md:text-5xl lg:text-7xl xl:text-7xl font-bold text-shadow-lg/30" style="font-family: 'SNOWMAS', sans-serif;">About Us</h1>
+        <h1 class="text-gray-900 text-center text-5xl md:text-5xl lg:text-7xl xl:text-7xl font-bold " style="font-family: 'SNOWMAS', sans-serif;">About Us</h1>
     </div>
 
     <!-- about us -->
     <section class="py-16" id="aboutus">
-        <div class="container mx-auto py-12 px-8 sm:px-12 lg:px-16 rounded-3xl border border-white/10 shadow-2xl transition-all duration-500">
+        <div class="container mx-auto py-24 px-8 sm:px-12 lg:px-16 bg-white rounded-3xl shadow-xl transition-all duration-500">
             <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
                 <div class="max-w-xl">
                     <h2 class="text-4xl font-bold text-white mb-8 text-center md:text-left" style="font-family: 'Playtime With Hot Toddies', sans-serif;">A Festival Rooted in Place</h2>
-                    <p class="mt-4 text-gray-200 text-lg leading-relaxed">
+                    <p class="mt-4 text-gray-600 text-lg leading-relaxed">
                         Kilifi Creek Festival is more than an event — it’s a movement to decentralize the arts, bringing
                         creativity beyond city centers and into natural, community-rich environments. It champions the
                         idea that artistic excellence can emerge from mangroves, ocean rhythms, and local stories as
@@ -95,7 +95,7 @@
     </section>
     <!-- gallery -->
     <section class="body-font py-16" id="gallery">
-        <div class="container mx-auto rounded-3xl p-8 border border-white/5">
+        <div class="container mx-auto rounded-3xl p-8 border border-gray-100">
             <div class="flex justify-center text-4xl font-bold text-white text-center py-10" style="font-family: 'Snowmas', serif;">
                 The Creek Vision in Frames
             </div>
@@ -138,7 +138,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2">
 
-        <div class="bg-gray-700 p-0 md:p-0 flex justify-start text-white">
+        <div class="bg-white text-gray-900 p-0 md:p-0 flex justify-start">
             <div class="justify-center-safe max-w-full py-10 px-16 text-left">
                 <h2 class="font-display font-bold text-xl md:text-2xl lg:text-3xl mb-6">The Terrace Art Space</h2>
                 <p class="font-light text-sm md:text-base mb-6 leading-relaxed pr-9">P.O.Box 422, Plot 8 Mnarani,
@@ -191,7 +191,7 @@
         <h1 class="font-display font-bold text-5xl mb-6 text-white">About Us</h1>
         <p class="max-w-lg mx-auto"></p>
     </div>
-    <div class="prose prose-sm sm:prose lg:prose-lg mt-6 text-center mx-auto mb-24 max-w-4xl text-white bg-black/50 border border-white/10 rounded-3xl shadow-2xl p-6 md:p-10">
+    <div class="prose prose-sm sm:prose lg:prose-lg mt-6 text-center mx-auto mb-24 max-w-4xl text-white bg-white text-gray-900 shadow-2xl rounded-3xl shadow-2xl p-6 md:p-10">
         <p>In proud collaboration with The Terrace Consortium, Kilifi Creek Festival brings together established filmmakers, visionary artists, and local communities for a 7-day journey of film screenings, art exhibitions, fashion showcases, masterclasses, and public talks - set in carefully curated venues along the creek, from intimate waterfront venues to vibrant public spaces.</p>
     </div>-->
     <footer

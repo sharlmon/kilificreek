@@ -26,7 +26,7 @@
     </style>
 </head>
 
-<body class="antialiased min-h-screen" style="font-family: 'Times New Roman', Times, serif; color: #ffffff; background-color: #000000; background-image: url('home.jpg'); background-repeat: no-repeat; background-position: center center; background-attachment: fixed; background-size: cover;">
+<body class="antialiased min-h-screen bg-white text-gray-900" style="font-family: 'Times New Roman', Times, serif;">
     <!-- Global Background Blur Overlay -->
     <!-- Navbar -->
     <nav id="navbar" class="fixed w-full transition-transform duration-300 transform-gpu z-50 shadow-xl/30 bg-yellow-800/80 text-white">
@@ -76,22 +76,22 @@
         <div class="absolute top-1/4 -left-24 w-96 h-96 bg-yellow-600/10 rounded-full blur-[120px] pointer-events-none"></div>
         <div class="absolute bottom-1/4 -right-24 w-96 h-96 bg-yellow-900/10 rounded-full blur-[120px] pointer-events-none"></div>
 
-        <div class="container max-w-5xl mx-auto relative z-10 bg-black/50 rounded-3xl">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 overflow-hidden rounded-[2.5rem] bg-black/50 shadow-2xl border border-white/10 border border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)]">
+        <div class="container max-w-5xl mx-auto relative z-10 bg-white rounded-3xl">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-0 overflow-hidden rounded-[2.5rem] bg-white shadow-2xl border border-gray-100 border border-gray-100 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)]">
                 
                 <!-- Left Column: Form (7/12) -->
-                <div class="lg:col-span-7 p-8 md:p-12 lg:p-16 border-b lg:border-b-0 lg:border-r border-white/5">
+                <div class="lg:col-span-7 p-8 md:p-12 lg:p-16 border-b lg:border-b-0 lg:border-r border-gray-100">
                     <div class="max-w-md mx-auto lg:mx-0">
                         <span class="inline-block py-1 px-3 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-500 text-[10px] md:text-xs font-bold uppercase tracking-widest mb-6">Connect with us</span>
                         <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white tracking-tight leading-none" style="font-family: 'Playtime With Hot Toddies', sans-serif;">GET IN TOUCH</h2>
-                        <p class="text-gray-400 mb-10 text-base md:text-lg font-light leading-relaxed">
+                        <p class="text-gray-500 mb-10 text-base md:text-lg font-light leading-relaxed">
                             Have a question or want to collaborate? Drop us a message and we'll get back to you across the tide.
                         </p>
                         
                         <form class="space-y-5">
                             <div class="relative group">
                                 <input type="text" id="name" required
-                                    class="peer block w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white outline-none focus:border-yellow-500/40 focus:bg-white/[0.08] transition-all duration-500 placeholder-transparent"
+                                    class="peer block w-full bg-white/5 border border-gray-100 rounded-2xl px-5 py-4 text-white outline-none focus:border-yellow-500/40 focus:bg-white/[0.08] transition-all duration-500 placeholder-transparent"
                                     placeholder="Name" />
                                 <label for="name"
                                     class="absolute left-5 -top-3 text-[10px] md:text-xs text-yellow-500 font-bold bg-[#1a1a1a] px-2 rounded-md transition-all duration-300 peer-placeholder-shown:text-sm md:peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-[1.15rem] peer-placeholder-shown:bg-transparent peer-focus:-top-3 peer-focus:text-[10px] md:peer-focus:text-xs peer-focus:text-yellow-500 peer-focus:bg-[#1a1a1a]">
@@ -101,7 +101,7 @@
 
                             <div class="relative group">
                                 <input type="email" id="email" required
-                                    class="peer block w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white outline-none focus:border-yellow-500/40 focus:bg-white/[0.08] transition-all duration-500 placeholder-transparent"
+                                    class="peer block w-full bg-white/5 border border-gray-100 rounded-2xl px-5 py-4 text-white outline-none focus:border-yellow-500/40 focus:bg-white/[0.08] transition-all duration-500 placeholder-transparent"
                                     placeholder="Email address" />
                                 <label for="email"
                                     class="absolute left-5 -top-3 text-[10px] md:text-xs text-yellow-500 font-bold bg-[#1a1a1a] px-2 rounded-md transition-all duration-300 peer-placeholder-shown:text-sm md:peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-[1.15rem] peer-placeholder-shown:bg-transparent peer-focus:-top-3 peer-focus:text-[10px] md:peer-focus:text-xs peer-focus:text-yellow-500 peer-focus:bg-[#1a1a1a]">
@@ -111,7 +111,7 @@
 
                             <div class="relative group">
                                 <textarea id="message" rows="4" required
-                                    class="peer block w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-white outline-none focus:border-yellow-500/40 focus:bg-white/[0.08] transition-all duration-500 placeholder-transparent resize-none"
+                                    class="peer block w-full bg-white/5 border border-gray-100 rounded-2xl px-5 py-4 text-white outline-none focus:border-yellow-500/40 focus:bg-white/[0.08] transition-all duration-500 placeholder-transparent resize-none"
                                     placeholder="Message"></textarea>
                                 <label for="message"
                                     class="absolute left-5 -top-3 text-[10px] md:text-xs text-yellow-500 font-bold bg-[#1a1a1a] px-2 rounded-md transition-all duration-300 peer-placeholder-shown:text-sm md:peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-[1.15rem] peer-placeholder-shown:bg-transparent peer-focus:-top-3 peer-focus:text-[10px] md:peer-focus:text-xs peer-focus:text-yellow-500 peer-focus:bg-[#1a1a1a]">
@@ -176,7 +176,7 @@
                     </div>
 
                     <!-- Map Section -->
-                    <div class="h-[220px] w-full border-t border-white/5 opacity-40 hover:opacity-100 transition-opacity duration-1000 grayscale hover:grayscale-0">
+                    <div class="h-[220px] w-full border-t border-gray-100 opacity-40 hover:opacity-100 transition-opacity duration-1000 grayscale hover:grayscale-0">
                         <iframe
                             src="https://www.google.com/maps/embed/v1/place?q=the%20terrace%20kilifi&key={{GOOGLE_MAPS_API_KEY}}"
                             width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
