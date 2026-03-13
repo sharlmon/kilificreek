@@ -39,14 +39,14 @@
         .fluid-heading-primary {
             font-size: clamp(1.75rem, 6vw + 0.5rem, 4.5rem);
             line-height: 1.1;
-            text-shadow: 0 8px 16px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.6);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
             position: relative;
             z-index: 10;
         }
 
         .fluid-heading-secondary {
             font-size: clamp(0.9rem, 3vw + 0.25rem, 1.75rem);
-            text-shadow: 0 4px 8px rgba(0,0,0,0.9);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
             position: relative;
             z-index: 10;
         }
@@ -188,10 +188,11 @@
     </script>
 
     <div class="relative w-screen h-screen bg-[url('./home.jpg')] bg-cover bg-center bg-fixed text-center grid grid-flow-row pt-16 items-center">
-        <div class="grid border border-white/20 py-12 px-6 bg-white/40 backdrop-blur-2xl rounded-3xl mx-4 my-8 shadow-2xl md:mx-auto max-w-5xl">
-            <p class="text-gray-900 text-right fluid-heading-secondary  pt-2 pr-4 md:pr-24 mb-4"
+        <div class="grid border border-white/20 py-12 px-6 rounded-3xl mx-4 my-8 shadow-2xl md:mx-auto max-w-5xl" 
+             style="background-color: rgba(255, 255, 255, 0.45); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);">
+            <p class="text-white text-right fluid-heading-secondary pt-2 pr-4 md:pr-24 mb-4"
                 style="font-family: 'Playtime With Hot Toddies', sans-serif;">23rd - 31st Oct 2026 | Kilifi Creek, Kenya</p>
-            <h1 class="text-gray-900 text-center fluid-heading-primary font-bold  px-4"
+            <h1 class="text-white text-center fluid-heading-primary font-bold px-4"
                 style="font-family: 'SNOWMAS', sans-serif;">Film Screenings in 7 Venues along the Kilifi Creek!</h1>
         </div>
         <div class="grid content-start">
