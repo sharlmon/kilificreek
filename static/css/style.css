@@ -2964,3 +2964,65 @@
     }
   }
 }
+/* Antigravity Design System */
+@keyframes float-antigravity {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(-15px) rotate(1deg); }
+    66% { transform: translateY(-5px) rotate(-1deg); }
+}
+
+@keyframes pulse-neon {
+    0%, 100% { filter: drop-shadow(0 0 5px rgba(234, 179, 8, 0.4)) drop-shadow(0 0 10px rgba(234, 179, 8, 0.2)); }
+    50% { filter: drop-shadow(0 0 15px rgba(234, 179, 8, 0.8)) drop-shadow(0 0 25px rgba(234, 179, 8, 0.4)); }
+}
+
+@keyframes particle-drift {
+    0% { transform: translate(0, 0) opacity(0); }
+    20% { opacity: 0.8; }
+    80% { opacity: 0.8; }
+    100% { transform: translate(var(--dx), var(--dy)) opacity(0); }
+}
+
+.glass-ribbon {
+    background: rgba(10, 10, 10, 0.4);
+    backdrop-filter: blur(15px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.antigravity-logo {
+    animation: float-antigravity 6s ease-in-out infinite, pulse-neon 4s ease-in-out infinite;
+    z-index: 60;
+    filter: drop-shadow(0 15px 35px rgba(0,0,0,0.5));
+}
+
+.field-glow {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(234, 179, 8, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+    mix-blend-mode: screen;
+}
+
+.floating-particle {
+    position: absolute;
+    pointer-events: none;
+    animation: particle-drift var(--duration) linear infinite;
+    animation-delay: var(--delay);
+}
+
+.droplet {
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.leaf-frag {
+    width: 10px;
+    height: 4px;
+    background: rgba(34, 197, 94, 0.4);
+    border-radius: 20% 80%;
+}
