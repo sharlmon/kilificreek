@@ -1,0 +1,20 @@
+﻿1abce6b Integrated professional banner bar below expanded navbar with blurred crowd texture and refined typography
+c14593b Refine header to slim professional design withcentered flush logo and scaled-down UI proportions
+d7f5975 Expand header size to h-20 and apply website theme colors. Fix emoji encoding.
+49a5161 Redesign professional scaled-down header with centered logo and glassmorphism ribbon across site
+f627088 Revert "Implement high-end antigravity header design with glassmorphism and floating particles"
+172c68b Revert "Global rollout of antigravity header design concept"
+66dca2a Global rollout of antigravity header design concept
+0bc33de Implement high-end antigravity header design with glassmorphism and floating particles
+9c0e4ac Finalize Times New Roman as global font and ensure consistency across all subpages
+6a3cda3 Update font to Times New Roman and restore original logo badge across site
+a44cc3d Asset Refinement: Finalized logo with high-contrast white shield and full transparency
+c05ca4c Asset Update: Cleaned logo with transparency and white shield infill
+4b67e95 UI Finish: Global floating badge header and consistent navigation across all pages
+8e92862 UI Redesign: Floating badge header and restored scrolling partners ticker
+e1c375b Hero Redesign: Reverted to text-only look with sharp shadows for visibility
+68e02a6 UI Redesign: Partners & Brands section updated to match official site aesthetic
+8b3380e UI Redesign: Creative dynamic scaling logo ticker for Community of Creators
+a87d988 UI Refinement: Balanced Community of Creators section size for better desktop/mobile experience
+1f482cc UI Redesign: Massively upscaled Community of Creators section for full-page impact
+6db0d9c UI Update: Increased partner logo sizes in scrolling section
