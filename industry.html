@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Industry — Kilifi Creek Festival</title>
+    <meta name="description" content="KCF Industry programme features daytime workshops, masterclasses, Q&As and professional exchanges alongside evening outdoor screenings.">
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="./fonts.googleapis.com/css2%EF%B9%96family=Fira+Sans+Condensed%EF%B9%95wght@100%EF%B9%94200%EF%B9%94300%EF%B9%94400%EF%B9%94500%EF%B9%94600%EF%B9%94700&amp;family=Playfair+Display%EF%B9%95wght@100%EF%B9%94200%EF%B9%94300%EF%B9%94400%EF%B9%94500%EF%B9%94600%EF%B9%94700&amp;family=Overpass%EF%B9%95wght@200%EF%B9%94300%EF%B9%94400%EF%B9%94600%EF%B9%94700&amp;display=swap.css" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/snowmas" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/playtime-with-hot-toddies" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/dist/cdn.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+
+<body class="antialiased min-h-screen bg-white text-gray-900" style="font-family: 'Times New Roman', Times, serif;">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full transition-transform duration-300 transform-gpu z-50 bg-[#0a0a0a]/85 backdrop-blur-xl text-white border-b border-white/5 h-16 flex items-center shadow-2xl">
+        <div class="container mx-auto px-4 md:px-12 lg:px-24 flex justify-between items-center relative h-full">
+            <div class="h-full flex items-center">
+                <a href="./index.html" class="h-full flex items-center group transition-all duration-300">
+                    <img class="h-full w-auto py-1 object-contain transition-transform group-hover:scale-[1.02]" src="./static/images/logo/logo.png" alt="Kilifi Creek Festival Logo" />
+                </a>
+            </div>
+            <ul class="hidden md:flex items-center gap-8 uppercase text-[11px] lg:text-xs font-bold tracking-[0.2em] h-full">
+                <li><a href="./index.html" class="hover:text-amber-500 transition-colors py-2">Home</a></li>
+                <li><a href="./about-us.html" class="hover:text-amber-500 transition-colors py-2">About</a></li>
+                <li><a href="./screenings.html" class="hover:text-amber-500 transition-colors py-2">Screenings</a></li>
+                <li><a href="./industry.html" class="text-amber-500 transition-colors py-2">Industry</a></li>
+                <li><a href="./team.html" class="hover:text-amber-500 transition-colors py-2">Team</a></li>
+                <li><a href="./press.html" class="hover:text-amber-500 transition-colors py-2">Press</a></li>
+                <li><a href="./contact-us.html" class="hover:text-amber-500 transition-colors py-2">Contact</a></li>
+                <li class="h-full flex items-center">
+                    <a href="https://filmfreeway.com/KilifiCreekFestival" target="_blank" class="ml-4 px-6 py-2.5 bg-amber-600 hover:bg-amber-500 text-white rounded-[2px] transition-all shadow-xl font-black text-[10px] tracking-[0.2em] border border-amber-400/30 uppercase flex items-center gap-2">
+                        <span class="opacity-80">&#127916;</span> SUBMIT FILM
+                    </a>
+                </li>
+            </ul>
+            <button id="menu-btn" class="md:hidden flex items-center text-white/80 hover:text-white p-2 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" /></svg>
+            </button>
+        </div>
+    </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-[100] bg-[#050505]/95 backdrop-blur-2xl flex flex-col items-center justify-center space-y-8 transform translate-x-full transition-transform duration-500 md:hidden">
+        <button id="menu-close" class="absolute top-8 right-8 text-white/50 hover:text-white p-2 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-9 h-9"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+        </button>
+        <a href="./index.html" class="text-xl font-medium text-white/70 hover:text-white uppercase tracking-[0.3em]">Home</a>
+        <a href="./about-us.html" class="text-xl font-medium text-white/70 hover:text-white uppercase tracking-[0.3em]">About</a>
+        <a href="./screenings.html" class="text-xl font-medium text-white/70 hover:text-white uppercase tracking-[0.3em]">Screenings</a>
+        <a href="./industry.html" class="text-xl font-medium text-white/70 hover:text-white uppercase tracking-[0.3em]">Industry</a>
+        <a href="./team.html" class="text-xl font-medium text-white/70 hover:text-white uppercase tracking-[0.3em]">Team</a>
+        <a href="./press.html" class="text-xl font-medium text-white/70 hover:text-white uppercase tracking-[0.3em]">Press</a>
+        <a href="./contact-us.html" class="text-xl font-medium text-white/70 hover:text-white uppercase tracking-[0.3em]">Contact</a>
+        <a href="https://filmfreeway.com/KilifiCreekFestival" target="_blank" class="px-10 py-4 bg-amber-600 text-white font-black tracking-[0.2em] rounded-[2px] shadow-xl mt-4 uppercase flex items-center gap-3"><span>&#127916;</span> SUBMIT FILM</a>
+    </div>
+    <script>
+        (function() {
+            let prevScrollPos = window.pageYOffset;
+            const navbar = document.getElementById("navbar");
+            if (navbar) { window.addEventListener('scroll', function() { let e = window.pageYOffset; if (prevScrollPos > e) { navbar.style.transform = "translateY(0)"; } else { if (e > 100) navbar.style.transform = "translateY(-100%)"; } prevScrollPos = e; }); }
+            const menuBtn = document.getElementById("menu-btn"), menuClose = document.getElementById("menu-close"), mobileMenu = document.getElementById("mobile-menu");
+            if (menuBtn && menuClose && mobileMenu) {
+                menuBtn.addEventListener("click", () => { mobileMenu.classList.remove("translate-x-full"); document.body.style.overflow = "hidden"; });
+                menuClose.addEventListener("click", () => { mobileMenu.classList.add("translate-x-full"); document.body.style.overflow = ""; });
+                mobileMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => { mobileMenu.classList.add("translate-x-full"); document.body.style.overflow = ""; }));
+            }
+        })();
+    </script>
+
+    <!-- Hero -->
+    <div class="relative w-screen h-80 bg-[url('./image3.jpg.jpeg')] bg-cover bg-center bg-fixed text-center grid place-items-center pt-16">
+        <div class="absolute inset-0 bg-black/50"></div>
+        <div class="relative z-10 bg-white/20 backdrop-blur-2xl px-12 py-6 rounded-3xl border border-white/20 shadow-2xl">
+            <h1 class="text-white text-center text-5xl md:text-6xl lg:text-7xl font-bold" style="font-family: 'Times New Roman', Times, serif;">Industry</h1>
+        </div>
+    </div>
+
+    <!-- Industry Content -->
+    <section class="py-24 px-6 bg-white">
+        <div class="container mx-auto max-w-5xl reveal">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <div class="w-24 h-2 bg-yellow-800 mb-8"></div>
+                    <h2 class="text-4xl font-bold text-gray-900 mb-8" style="font-family: 'Times New Roman', Times, serif;">Where Knowledge Meets Creativity</h2>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                        The KCF Industry programme pairs daytime workshops and masterclasses with evening outdoor screenings, creating a unique space where professional development and artistic celebration go hand in hand.
+                    </p>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                        During the day, filmmakers, artists, and industry professionals come together for hands-on workshops, in-depth masterclasses, moderated Q&A sessions, and professional exchanges. These sessions cover everything from storytelling and cinematography to distribution, funding, and the business of film in Africa.
+                    </p>
+                    <p class="text-gray-600 text-lg leading-relaxed">
+                        As the sun sets over the creek, the programme transitions to open-air screenings — transforming the Kilifi waterfront into an immersive cinematic experience that brings communities, filmmakers, and audiences together.
+                    </p>
+                </div>
+                <div class="space-y-6">
+                    <div class="group overflow-hidden rounded-2xl shadow-xl">
+                        <img src="./image3.jpg.jpeg" alt="Workshop and Q&A session" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                    <div class="group overflow-hidden rounded-2xl shadow-xl">
+                        <img src="./imageB.jpg" alt="Professional exchange" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Visuals Grid -->
+    <section class="py-16 px-6 bg-gray-50 border-y border-gray-100">
+        <div class="container max-w-7xl mx-auto">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl font-bold text-gray-900" style="font-family: 'Times New Roman', Times, serif;">Workshops, Q&As & Exchanges</h2>
+                <div class="w-24 h-1 bg-yellow-600 mx-auto mt-6 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 reveal">
+                <div class="group overflow-hidden rounded-xl md:col-span-2 md:row-span-2">
+                    <img src="./imageC.jpg" alt="Industry workshop" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                </div>
+                <div class="group overflow-hidden rounded-xl">
+                    <img src="./image5.jpg" alt="Q&A panel" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                </div>
+                <div class="group overflow-hidden rounded-xl">
+                    <img src="./imageA.jpg" alt="Masterclass" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                </div>
+                <div class="group overflow-hidden rounded-xl">
+                    <img src="./image4.jpg" alt="Outdoor screening" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                </div>
+                <div class="group overflow-hidden rounded-xl">
+                    <img src="./imageD.jpg" alt="Professional exchange" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white text-opacity-40 font-semibold uppercase text-xs tracking-widest bg-opacity-80 px-12">
+        <div class="container mx-auto md:flex md:items-center md:justify-between text-center lg:text-left py-24">
+            <ul class="flex items-center flex-wrap mb-6 md:mb-0">
+                <li><a href="./about-us.html" class="text-sm font-normal text-gray-500 hover:underline mr-4 md:mr-6">About</a></li>
+                <li><a href="./screenings.html" class="text-sm font-normal text-gray-500 hover:underline mr-4 md:mr-6">Screenings</a></li>
+                <li><a href="./industry.html" class="text-sm font-normal text-gray-500 hover:underline mr-4 md:mr-6">Industry</a></li>
+                <li><a href="./team.html" class="text-sm font-normal text-gray-500 hover:underline mr-4 md:mr-6">Team</a></li>
+                <li><a href="./press.html" class="text-sm font-normal text-gray-500 hover:underline mr-4 md:mr-6">Press</a></li>
+                <li><a href="./contact-us.html" class="text-sm font-normal text-gray-500 hover:underline">Contact</a></li>
+            </ul>
+        </div>
+        <div class="text-sm lg:text-base text-center font-light tracking-widest uppercase text-white opacity-75 pb-10">&copy;2025 DESIGN BY TERRACE</div>
+    </footer>
+    <script>
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
